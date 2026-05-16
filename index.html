@@ -506,8 +506,8 @@ tbody tr:hover { background:rgba(255,255,255,.02); }
   <footer class="site-footer">Arena Predictiva PRO · Algoritmo 5D + Monte Carlo · CONMEBOL Libertadores</footer>
 </div>
 
-<script>
 const DB = {
+  // ARGENTINA
   "Boca Juniors (ARG)":           {p:"ARG",c:"#003b7a",i:"🟦",xg:2.1,gc:0.8,pr:0.65,vi:0.50,wd:0.68,u10:[3,3,1,3,0,3,3,1,3,3],u3:[3,3,3],alt:false},
   "River Plate (ARG)":            {p:"ARG",c:"#cc0000",i:"⬜",xg:2.3,gc:0.7,pr:0.70,vi:0.55,wd:0.72,u10:[3,3,1,3,3,0,3,1,3,3],u3:[3,1,3],alt:false},
   "San Lorenzo (ARG)":            {p:"ARG",c:"#0a2240",i:"🦅",xg:1.4,gc:1.1,pr:0.52,vi:0.40,wd:0.48,u10:[1,3,0,1,3,1,0,3,3,1],u3:[3,1,0],alt:false},
@@ -515,35 +515,67 @@ const DB = {
   "Talleres (ARG)":               {p:"ARG",c:"#001a33",i:"🛡️",xg:1.8,gc:1.0,pr:0.62,vi:0.42,wd:0.58,u10:[3,3,1,0,3,1,3,3,0,3],u3:[3,0,3],alt:false},
   "Racing Club (ARG)":            {p:"ARG",c:"#1e6eb5",i:"🎓",xg:2.0,gc:0.9,pr:0.64,vi:0.48,wd:0.61,u10:[3,1,3,3,0,3,1,3,0,3],u3:[3,0,3],alt:false},
   "Vélez Sarsfield (ARG)":        {p:"ARG",c:"#1a237e",i:"🏹",xg:1.7,gc:0.9,pr:0.60,vi:0.47,wd:0.56,u10:[3,3,1,3,0,1,3,3,1,3],u3:[3,1,3],alt:false},
+  "Rosario Central (ARG)":        {p:"ARG",c:"#f1c40f",i:"🇺🇦",xg:1.5,gc:1.1,pr:0.54,vi:0.38,wd:0.50,u10:[3,1,0,3,1,1,3,0,3,1],u3:[0,3,1],alt:false},
+  "Godoy Cruz (ARG)":             {p:"ARG",c:"#1a5276",i:"🍇",xg:1.6,gc:0.8,pr:0.57,vi:0.48,wd:0.54,u10:[3,3,1,0,3,3,1,3,1,0],u3:[1,3,0],alt:false},
+
+  // BRASIL
   "Flamengo (BRA)":               {p:"BRA",c:"#b71c1c",i:"🔴",xg:2.4,gc:0.6,pr:0.72,vi:0.60,wd:0.75,u10:[3,3,3,1,0,3,3,1,3,3],u3:[3,1,3],alt:false},
   "Palmeiras (BRA)":              {p:"BRA",c:"#1b5e20",i:"🐷",xg:2.2,gc:0.7,pr:0.68,vi:0.58,wd:0.70,u10:[3,1,3,3,3,0,3,1,3,3],u3:[3,3,0],alt:false},
-  "Botafogo (BRA)":               {p:"BRA",c:"#222",   i:"⭐",xg:2.1,gc:0.9,pr:0.66,vi:0.52,wd:0.67,u10:[3,3,0,3,1,3,3,1,0,3],u3:[1,0,3],alt:false},
+  "Botafogo (BRA)":               {p:"BRA",c:"#222222",i:"⭐",xg:2.1,gc:0.9,pr:0.66,vi:0.52,wd:0.67,u10:[3,3,0,3,1,3,3,1,0,3],u3:[1,0,3],alt:false},
   "Atlético Mineiro (BRA)":       {p:"BRA",c:"#212121",i:"🐔",xg:2.0,gc:0.9,pr:0.64,vi:0.48,wd:0.65,u10:[3,3,1,0,3,3,1,3,0,3],u3:[3,0,3],alt:false},
   "Cruzeiro (BRA)":               {p:"BRA",c:"#0045a5",i:"🦊",xg:1.9,gc:0.9,pr:0.61,vi:0.45,wd:0.62,u10:[3,1,3,3,0,1,3,3,1,3],u3:[3,1,3],alt:false},
-  "Fluminense (BRA)":             {p:"BRA",c:"#4a148c",i:"💜",xg:1.8,gc:1.1,pr:0.63,vi:0.38,wd:0.60,u10:[1,3,3,0,3,1,0,3,3,1],u3:[0,3,1],alt:false},
-  "São Paulo (BRA)":              {p:"BRA",c:"#3e2723",i:"🔺",xg:1.9,gc:0.9,pr:0.61,vi:0.46,wd:0.59,u10:[3,1,3,0,3,3,1,3,0,3],u3:[3,0,3],alt:false},
+  "Fluminense (BRA)":             {p:"BRA",c:"#4a148c",i:"🇭🇺",xg:1.8,gc:1.1,pr:0.63,vi:0.38,wd:0.60,u10:[1,3,3,0,3,1,0,3,3,1],u3:[0,3,1],alt:false},
+  "São Paulo (BRA)":              {p:"BRA",c:"#3e2723",i:"🇾🇪",xg:1.9,gc:0.9,pr:0.61,vi:0.46,wd:0.59,u10:[3,1,3,0,3,3,1,3,0,3],u3:[3,0,3],alt:false},
+  "RB Bragantino (BRA)":          {p:"BRA",c:"#f4f6f7",i:"🐂",xg:1.7,gc:1.0,pr:0.59,vi:0.40,wd:0.53,u10:[1,3,3,0,1,3,1,3,0,3],u3:[3,0,3],alt:false},
+
+  // URUGUAY
   "Peñarol (URU)":                {p:"URU",c:"#c8961a",i:"🟨",xg:1.6,gc:1.1,pr:0.54,vi:0.38,wd:0.52,u10:[3,3,0,1,3,3,0,3,1,3],u3:[3,1,3],alt:false},
   "Nacional (URU)":               {p:"URU",c:"#0055a5",i:"⬜",xg:1.5,gc:1.1,pr:0.53,vi:0.35,wd:0.50,u10:[3,1,1,3,0,3,3,1,0,3],u3:[3,0,3],alt:false},
+  "Liverpool (URU)":              {p:"URU",c:"#2471a3",i:"⚫",xg:1.3,gc:1.2,pr:0.50,vi:0.32,wd:0.45,u10:[1,3,0,1,3,0,3,1,0,3],u3:[1,0,3],alt:false},
+  "Defensor Sporting (URU)":      {p:"URU",c:"#6c3483",i:"💜",xg:1.4,gc:1.1,pr:0.52,vi:0.36,wd:0.46,u10:[3,0,1,3,3,0,1,3,0,3],u3:[3,0,3],alt:false},
+
+  // COLOMBIA
   "Junior (COL)":                 {p:"COL",c:"#d32f2f",i:"🦈",xg:1.6,gc:1.1,pr:0.56,vi:0.39,wd:0.51,u10:[3,1,0,3,3,1,0,3,1,3],u3:[3,1,3],alt:false},
   "Millonarios (COL)":            {p:"COL",c:"#1565c0",i:"Ⓜ️",xg:1.5,gc:1.0,pr:0.54,vi:0.41,wd:0.49,u10:[1,3,3,0,1,3,3,0,3,1],u3:[3,0,1],alt:false},
   "Atl. Nacional (COL)":          {p:"COL",c:"#2e7d32",i:"🟢",xg:1.7,gc:1.0,pr:0.58,vi:0.43,wd:0.53,u10:[3,3,1,0,3,1,3,0,3,3],u3:[0,3,3],alt:false},
+  "Águilas Doradas (COL)":        {p:"COL",c:"#d4ac0d",i:"🦅",xg:1.3,gc:1.1,pr:0.50,vi:0.35,wd:0.42,u10:[1,1,3,0,3,1,0,3,0,3],u3:[0,3,0],alt:false},
+
+  // CHILE
   "Colo-Colo (CHI)":              {p:"CHI",c:"#37474f",i:"🏁",xg:1.5,gc:1.1,pr:0.53,vi:0.36,wd:0.48,u10:[1,3,3,0,1,3,0,3,3,1],u3:[0,3,1],alt:false},
   "Universidad de Chile (CHI)":   {p:"CHI",c:"#0b3c5d",i:"🦉",xg:1.4,gc:1.0,pr:0.51,vi:0.40,wd:0.47,u10:[3,1,1,3,0,3,1,3,0,3],u3:[3,0,3],alt:false},
   "Universidad Católica (CHI)":   {p:"CHI",c:"#003087",i:"🔵",xg:1.7,gc:1.0,pr:0.58,vi:0.45,wd:0.65,u10:[3,1,3,3,1,0,3,3,1,3],u3:[1,3,3],alt:false},
+  "Palestino (CHI)":              {p:"CHI",c:"#117a65",i:"🇵🇸",xg:1.3,gc:1.2,pr:0.49,vi:0.33,wd:0.44,u10:[0,3,3,1,0,3,1,3,0,1],u3:[3,0,1],alt:false},
+
+  // ECUADOR
   "Liga de Quito (ECU)":          {p:"ECU",c:"#c62828",i:"⚪",xg:1.7,gc:1.0,pr:0.58,vi:0.42,wd:0.55,u10:[3,1,3,0,3,3,1,0,3,3],u3:[1,3,3],alt:false},
   "Independiente del Valle (ECU)":{p:"ECU",c:"#1b2a47",i:"🖤",xg:1.8,gc:0.9,pr:0.60,vi:0.47,wd:0.58,u10:[3,3,1,3,0,1,3,3,0,3],u3:[3,0,3],alt:false},
   "Barcelona SC (ECU)":           {p:"ECU",c:"#c8a000",i:"🟡",xg:1.6,gc:1.2,pr:0.55,vi:0.34,wd:0.46,u10:[3,0,1,3,3,0,3,1,3,1],u3:[1,3,1],alt:false},
+  "El Nacional (ECU)":            {p:"ECU",c:"#cb4335",i:"🎖️",xg:1.4,gc:1.3,pr:0.51,vi:0.30,wd:0.43,u10:[3,0,0,3,1,3,0,3,1,0],u3:[3,1,0],alt:false},
+
+  // PARAGUAY
   "Olimpia (PAR)":                {p:"PAR",c:"#1c2833",i:"👑",xg:1.5,gc:1.0,pr:0.54,vi:0.42,wd:0.52,u10:[3,1,3,3,0,1,3,1,3,0],u3:[1,3,0],alt:false},
   "Cerro Porteño (PAR)":          {p:"PAR",c:"#2e4053",i:"🌪️",xg:1.4,gc:1.1,pr:0.52,vi:0.38,wd:0.49,u10:[1,3,0,3,3,1,0,3,1,3],u3:[3,1,3],alt:false},
+  "Libertad (PAR)":               {p:"PAR",c:"#17202a",i:"🏁",xg:1.6,gc:0.9,pr:0.56,vi:0.45,wd:0.55,u10:[3,3,1,3,0,3,1,3,3,1],u3:[3,3,1],alt:false},
+  "Sportivo Trinidense (PAR)":    {p:"PAR",c:"#1f618d",i:"🛡️",xg:1.2,gc:1.4,pr:0.47,vi:0.26,wd:0.38,u10:[0,3,1,0,3,0,3,1,0,1],u3:[0,1,1],alt:false},
+
+  // BOLIVIA
   "Bolívar (BOL)":                {p:"BOL",c:"#0288d1",i:"🏔️",xg:1.6,gc:1.4,pr:0.55,vi:0.28,wd:0.42,u10:[3,3,0,3,1,3,0,3,3,0],u3:[3,3,0],alt:true},
   "The Strongest (BOL)":          {p:"BOL",c:"#f9a825",i:"🐯",xg:1.4,gc:1.5,pr:0.51,vi:0.25,wd:0.38,u10:[3,0,3,1,3,0,3,1,3,0],u3:[1,3,0],alt:true},
-  "Universitario (PER)":          {p:"PER",c:"#8a7340",i:"🎽",xg:1.3,gc:1.2,pr:0.50,vi:0.35,wd:0.44,u10:[3,1,1,0,3,3,1,0,3,1],u3:[0,3,1],alt:false},
+  "Always Ready (BOL)":           {p:"BOL",c:"#ecf0f1",i:"🔴",xg:1.4,gc:1.3,pr:0.50,vi:0.29,wd:0.40,u10:[3,0,3,1,0,3,1,0,3,0],u3:[3,0,0],alt:true},
+  "Aurora (BOL)":                 {p:"BOL",c:"#5dade2",i:"🌌",xg:1.3,gc:1.4,pr:0.48,vi:0.26,wd:0.37,u10:[1,3,0,3,0,1,3,0,1,3],u3:[0,1,3],alt:true},
+
+  // PERÚ
+  "Universitario (PER)":          {p:"PER",c:"#8a7340",i:"🟤",xg:1.3,gc:1.2,pr:0.50,vi:0.35,wd:0.44,u10:[3,1,1,0,3,3,1,0,3,1],u3:[0,3,1],alt:false},
   "Alianza Lima (PER)":           {p:"PER",c:"#0a1931",i:"🦇",xg:1.2,gc:1.3,pr:0.48,vi:0.32,wd:0.40,u10:[1,3,0,3,1,3,0,1,3,3],u3:[1,3,3],alt:false},
+  "Sporting Cristal (PER)":       {p:"PER",c:"#5dade2",i:"🎽",xg:1.5,gc:1.2,pr:0.53,vi:0.34,wd:0.45,u10:[3,3,0,1,3,3,0,3,1,3],u3:[3,1,3],alt:false},
+  "Melgar (PER)":                 {p:"PER",c:"#ba4a00",i:"🔴",xg:1.3,gc:1.3,pr:0.49,vi:0.31,wd:0.41,u10:[0,3,1,3,0,1,3,0,3,1],u3:[0,3,1],alt:false},
+
+  // VENEZUELA
   "Deportivo Táchira (VEN)":      {p:"VEN",c:"#6d1f1f",i:"🏴",xg:1.1,gc:1.5,pr:0.45,vi:0.26,wd:0.35,u10:[1,3,0,1,3,0,3,0,1,3],u3:[0,1,3],alt:false},
   "Caracas FC (VEN)":             {p:"VEN",c:"#922b21",i:"👹",xg:1.0,gc:1.6,pr:0.42,vi:0.22,wd:0.32,u10:[0,1,3,0,1,3,0,1,3,0],u3:[1,3,0],alt:false},
+  "Academia Puerto Cabello (VEN)":{p:"VEN",c:"#2471a3",i:"⚓",xg:1.1,gc:1.4,pr:0.44,vi:0.28,wd:0.34,u10:[3,0,1,0,3,1,0,3,0,1],u3:[0,3,0],alt:false},
+  "Portuguesa (VEN)":             {p:"VEN",c:"#d4ac0d",i:"🖤",xg:1.0,gc:1.5,pr:0.41,vi:0.24,wd:0.30,u10:[0,1,3,0,0,3,1,0,3,0],u3:[1,3,0],alt:false}
 };
-const ATTRS=[{k:"forma",lbl:"Forma reciente",w:.30},{k:"ataque",lbl:"Poder ofensivo",w:.25},{k:"defensa",lbl:"Sol. defensiva",w:.25},{k:"presion",lbl:"Bajo presión",w:.10},{k:"momentum",lbl:"Momentum",w:.10}];
-let votes=JSON.parse(localStorage.getItem("apv3")||"[]");
 
 function poisson(k,l){let r=Math.exp(-l);for(let i=1;i<=k;i++)r*=l/i;return r;}
 function sampleP(l){let L=Math.exp(-l),k=0,p=1;do{k++;p*=Math.random();}while(p>L);return k-1;}

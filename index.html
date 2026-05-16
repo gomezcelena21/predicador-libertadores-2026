@@ -9,20 +9,11 @@
 :root{--bg:#04080e;--gold:#f5c518;--gold2:#e08000;--cyan:#00cfff;--red:#ff2d55;--green:#00d68f;--border:rgba(255,255,255,.08);--muted:rgba(255,255,255,.38);--surface:rgba(255,255,255,.03);}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:#fff;font-family:'Barlow',sans-serif;min-height:100vh;overflow-x:hidden;}
-
-.bg{position:fixed;inset:0;z-index:0;
-  background:radial-gradient(ellipse 90% 55% at 50% 110%,rgba(0,207,255,.06) 0%,transparent 60%),
-             radial-gradient(ellipse 55% 35% at 18% -5%,rgba(245,197,24,.05) 0%,transparent 50%),
-             radial-gradient(ellipse 55% 35% at 82% -5%,rgba(245,197,24,.05) 0%,transparent 50%),
-             linear-gradient(180deg,#060c18 0%,#04080e 100%);}
+.bg{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 90% 55% at 50% 110%,rgba(0,207,255,.06) 0%,transparent 60%),radial-gradient(ellipse 55% 35% at 18% -5%,rgba(245,197,24,.05) 0%,transparent 50%),radial-gradient(ellipse 55% 35% at 82% -5%,rgba(245,197,24,.05) 0%,transparent 50%),linear-gradient(180deg,#060c18 0%,#04080e 100%);}
 .beam{position:absolute;top:-5%;width:2px;height:55%;background:linear-gradient(180deg,rgba(245,197,24,.18) 0%,transparent 100%);transform-origin:top center;animation:bsway 8s ease-in-out infinite;}
-.beam:nth-child(1){left:13%;transform:rotate(-22deg);animation-delay:0s;}
-.beam:nth-child(2){left:27%;transform:rotate(-10deg);animation-delay:1.8s;}
-.beam:nth-child(3){right:27%;transform:rotate(10deg);animation-delay:3.4s;}
-.beam:nth-child(4){right:13%;transform:rotate(22deg);animation-delay:5s;}
+.beam:nth-child(1){left:13%;transform:rotate(-22deg);animation-delay:0s;}.beam:nth-child(2){left:27%;transform:rotate(-10deg);animation-delay:1.8s;}.beam:nth-child(3){right:27%;transform:rotate(10deg);animation-delay:3.4s;}.beam:nth-child(4){right:13%;transform:rotate(22deg);animation-delay:5s;}
 @keyframes bsway{0%,100%{opacity:.45}50%{opacity:1}}
-
-.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:0 16px 80px;}
+.wrap{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:0 16px 80px;}
 
 /* HEADER */
 .hdr{text-align:center;padding:44px 0 0;}
@@ -37,154 +28,189 @@ body{background:var(--bg);color:#fff;font-family:'Barlow',sans-serif;min-height:
 .divider{display:flex;align-items:center;margin:26px 0 0;}
 .divider span{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);}
 .divider strong{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:900;letter-spacing:4px;color:var(--gold);padding:0 14px;border:1px solid rgba(245,197,24,.28);border-radius:2px;}
-
-/* ENGINE BADGE */
-.engine-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px;}
+.engine-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px;}
 .echip{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;border:1px solid;}
 .echip.c1{color:var(--cyan);border-color:rgba(0,207,255,.3);background:rgba(0,207,255,.06);}
 .echip.c2{color:var(--gold);border-color:rgba(245,197,24,.3);background:rgba(245,197,24,.06);}
 .echip.c3{color:var(--red);border-color:rgba(255,45,85,.3);background:rgba(255,45,85,.06);}
 .echip.c4{color:var(--green);border-color:rgba(0,214,143,.3);background:rgba(0,214,143,.06);}
 
-/* GROUP NAV */
-.group-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:28px;}
-.gnav-btn{font-family:'Anton',sans-serif;font-size:13px;letter-spacing:2px;padding:7px 16px;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s;}
-.gnav-btn:hover,.gnav-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(245,197,24,.07);}
-
-/* MATCHUP CARD */
-.matchup{margin-top:24px;background:linear-gradient(145deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.01) 100%);border:1px solid var(--border);border-radius:22px;padding:36px 24px 28px;position:relative;overflow:hidden;box-shadow:0 36px 72px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);}
-.matchup::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold),var(--cyan));}
-.matchup::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:380px;height:190px;background:radial-gradient(ellipse,rgba(0,207,255,.06) 0%,transparent 70%);animation:gpulse 3s ease-in-out infinite;pointer-events:none;}
-@keyframes gpulse{0%,100%{opacity:.5}50%{opacity:1}}
-
-.vs-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;}
-.team-side{text-align:center;}
-.crest{width:96px;height:96px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:44px;border:2px solid rgba(255,255,255,.1);transition:transform .3s;}
-.crest:hover{transform:scale(1.07);}
-.tname{font-family:'Anton',sans-serif;font-size:clamp(14px,2.6vw,22px);letter-spacing:1px;text-transform:uppercase;line-height:1;}
-.ctag{display:inline-block;margin-top:6px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:var(--gold);border:1px solid rgba(245,197,24,.28);border-radius:2px;padding:2px 8px;}
-.group-tag{display:inline-block;margin-top:4px;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);border:1px solid var(--border);border-radius:2px;padding:1px 6px;}
-
-.score-center{text-align:center;min-width:185px;}
-.vs-chip{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:900;letter-spacing:4px;color:rgba(255,255,255,.22);margin-bottom:6px;}
-.score-box{background:#000;border:1px solid rgba(0,207,255,.38);border-radius:14px;padding:14px 18px;position:relative;box-shadow:0 0 36px rgba(0,207,255,.1),inset 0 0 16px rgba(0,207,255,.03);}
-.score-box::before,.score-box::after{content:'';position:absolute;top:50%;transform:translateY(-50%);width:4px;height:4px;border-radius:50%;background:var(--cyan);box-shadow:0 0 6px var(--cyan);}
-.score-box::before{left:9px;}.score-box::after{right:9px;}
-.score-num{font-family:'Anton',sans-serif;font-size:58px;letter-spacing:8px;color:var(--cyan);line-height:1;text-shadow:0 0 28px rgba(0,207,255,.6);animation:sglow 2s ease-in-out infinite;}
-@keyframes sglow{0%,100%{text-shadow:0 0 28px rgba(0,207,255,.6),0 0 56px rgba(0,207,255,.28);}50%{text-shadow:0 0 48px rgba(0,207,255,.9),0 0 90px rgba(0,207,255,.5);}}
-.score-lbl{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;color:var(--gold);margin-top:7px;text-transform:uppercase;}
-.alt-badge{margin:10px auto 0;max-width:340px;display:none;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gold);background:rgba(245,197,24,.07);border:1px solid rgba(245,197,24,.24);border-radius:6px;padding:5px 12px;}
-.alt-badge.on{display:block;}
-
-/* PROB */
-.prob-wrap{margin-top:22px;}
-.prob-track{height:10px;border-radius:5px;overflow:hidden;display:flex;background:rgba(0,0,0,.4);}
-.pb-w{background:linear-gradient(90deg,#00cfff,#0099cc);transition:width .7s cubic-bezier(.4,0,.2,1);}
-.pb-d{background:linear-gradient(90deg,#f5c518,#e08000);transition:width .7s cubic-bezier(.4,0,.2,1);}
-.pb-l{background:linear-gradient(90deg,#ff6b6b,#ff2d55);transition:width .7s cubic-bezier(.4,0,.2,1);}
-.prob-meta{display:grid;grid-template-columns:1fr 1fr 1fr;margin-top:10px;gap:6px;}
-.pm{text-align:center;}
-.pm-n{font-family:'Anton',sans-serif;font-size:28px;letter-spacing:1px;line-height:1;}
-.pm-n.w{color:var(--cyan);}.pm-n.d{color:var(--gold);}.pm-n.l{color:var(--red);}
-.pm-k{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:2px;}
-
-/* TOP3 */
-.top3w{margin-top:18px;}
-.top3lbl{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:9px;}
-.top3row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
-.t3c{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:9px 18px;text-align:center;transition:transform .2s;min-width:88px;cursor:default;}
-.t3c:first-child{border-color:rgba(245,197,24,.48);background:rgba(245,197,24,.05);}
-.t3c:first-child .t3s{color:var(--gold);text-shadow:0 0 14px rgba(245,197,24,.38);}
-.t3c:hover{transform:translateY(-2px);}
-.t3s{font-family:'Anton',sans-serif;font-size:23px;letter-spacing:3px;color:#fff;}
-.t3p{font-family:'Barlow Condensed',sans-serif;font-size:12px;color:var(--muted);margin-top:2px;font-weight:700;}
-
-/* SECTION HEAD */
-.sec{display:flex;align-items:center;gap:14px;margin:30px 0 18px;}
+/* SEC HEAD */
+.sec{display:flex;align-items:center;gap:14px;margin:32px 0 18px;}
 .sec h2{font-family:'Anton',sans-serif;font-size:27px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;}
 .sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
 .sec-badge{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:900;letter-spacing:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));color:#000;border-radius:3px;padding:3px 10px;text-transform:uppercase;white-space:nowrap;}
 
-/* TWO COL */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-@media(max-width:720px){.two{grid-template-columns:1fr;}.vs-grid{gap:10px;}.score-num{font-size:44px;}.score-center{min-width:130px;}}
+/* ═══════════════════════════════════
+   TABLA DE POSICIONES REAL
+═══════════════════════════════════ */
+.groups-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+@media(max-width:900px){.groups-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.groups-grid{grid-template-columns:1fr;}}
+.group-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.gc-header{background:linear-gradient(90deg,rgba(245,197,24,.12),rgba(245,197,24,.04));padding:8px 12px;display:flex;align-items:center;gap:8px;}
+.gc-letter{font-family:'Anton',sans-serif;font-size:22px;color:var(--gold);}
+.gc-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:var(--muted);text-transform:uppercase;}
+.gc-table{width:100%;border-collapse:collapse;}
+.gc-table th{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;}
+.gc-table th:first-child{text-align:left;}
+.gc-table td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.03);font-size:12px;text-align:center;}
+.gc-table td:first-child{text-align:left;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.5px;font-size:12px;}
+.gc-table tr:last-child td{border-bottom:none;}
+.gc-table .q1{background:rgba(0,207,255,.06);}
+.gc-table .q2{background:rgba(0,214,143,.04);}
+.gc-table .q3{background:rgba(245,197,24,.04);}
+.pts-badge{font-family:'Anton',sans-serif;font-size:14px;color:var(--cyan);}
+.team-icon{font-size:13px;margin-right:4px;}
+.pos-num{font-family:'Anton',sans-serif;font-size:12px;color:var(--muted);margin-right:4px;}
 
-/* GLASS */
+/* ═══════════════════════════════════
+   SIMULADOR DE TORNEO
+═══════════════════════════════════ */
+.sim-btn{width:100%;padding:18px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));background-size:200% auto;border:none;border-radius:14px;color:#000;font-family:'Anton',sans-serif;font-size:24px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:background-position .4s,transform .1s,box-shadow .2s;box-shadow:0 8px 28px rgba(245,197,24,.25);margin-bottom:18px;}
+.sim-btn:hover{background-position:right center;box-shadow:0 14px 40px rgba(245,197,24,.42);}
+.sim-btn:active{transform:scale(.98);}
+.sim-info{font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:20px;}
+.spin-row{display:flex;align-items:center;justify-content:center;gap:9px;padding:28px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:3px;text-transform:uppercase;}
+.spin{width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--cyan);border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* BRACKET */
+.bracket-wrap{overflow-x:auto;padding-bottom:10px;}
+.bracket{display:flex;gap:0;align-items:stretch;min-width:900px;}
+.bracket-round{display:flex;flex-direction:column;flex:1;}
+.br-title{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold);text-align:center;padding:8px 4px 12px;}
+.br-slots{display:flex;flex-direction:column;justify-content:space-around;flex:1;gap:6px;padding:0 4px;}
+.match-slot{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:10px;overflow:hidden;position:relative;}
+.ms-team{display:flex;align-items:center;gap:6px;padding:7px 10px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.5px;border-bottom:1px solid rgba(255,255,255,.04);}
+.ms-team:last-child{border-bottom:none;}
+.ms-team.winner{background:rgba(245,197,24,.08);color:var(--gold);}
+.ms-team.loser{opacity:.45;}
+.ms-icon{font-size:14px;flex-shrink:0;}
+.ms-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ms-score{font-family:'Anton',sans-serif;font-size:15px;color:var(--cyan);flex-shrink:0;}
+.ms-team.winner .ms-score{color:var(--gold);}
+
+/* GANADOR FINAL */
+.champion-box{margin-top:28px;background:linear-gradient(135deg,rgba(245,197,24,.12) 0%,rgba(245,197,24,.04) 100%);border:2px solid rgba(245,197,24,.4);border-radius:20px;padding:32px 24px;text-align:center;position:relative;overflow:hidden;}
+.champion-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(245,197,24,.08) 0%,transparent 70%);}
+.champ-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:900;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.champ-icon{font-size:60px;line-height:1;margin-bottom:12px;}
+.champ-name{font-family:'Anton',sans-serif;font-size:clamp(32px,6vw,56px);letter-spacing:2px;text-transform:uppercase;background:linear-gradient(135deg,#fff 30%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.champ-country{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:4px;color:var(--muted);margin-top:6px;}
+.champ-prob{font-family:'Anton',sans-serif;font-size:48px;color:var(--gold);margin-top:14px;display:block;}
+.champ-prob-lbl{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(245,197,24,.6);text-transform:uppercase;}
+
+/* ODDS TABLE */
+.odds-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;}
+@media(max-width:640px){.odds-grid{grid-template-columns:1fr;}}
+.odds-panel{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.odds-header{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--gold);padding:10px 14px;border-bottom:1px solid var(--border);}
+.odds-row{display:flex;align-items:center;gap:10px;padding:8px 14px;border-bottom:1px solid rgba(255,255,255,.03);}
+.odds-row:last-child{border-bottom:none;}
+.odds-pos{font-family:'Anton',sans-serif;font-size:16px;color:var(--muted);width:22px;flex-shrink:0;}
+.odds-icon{font-size:16px;flex-shrink:0;}
+.odds-name{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:.5px;flex:1;}
+.odds-bar-wrap{width:80px;flex-shrink:0;}
+.odds-bar{height:5px;border-radius:3px;background:var(--cyan);transition:width .6s ease;}
+.odds-pct{font-family:'Anton',sans-serif;font-size:15px;color:var(--cyan);width:44px;text-align:right;flex-shrink:0;}
+.odds-row:nth-child(1) .odds-pct,.odds-row:nth-child(1) .odds-bar{color:var(--gold);}
+.odds-row:nth-child(1) .odds-bar{background:var(--gold);}
+.odds-row:nth-child(2) .odds-pct,.odds-row:nth-child(2) .odds-bar{color:rgba(200,210,255,1);}
+.odds-row:nth-child(2) .odds-bar{background:rgba(200,210,255,.8);}
+
+/* MATCHUP SELECTOR */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:720px){.two{grid-template-columns:1fr;}}
 .glass{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px;position:relative;overflow:hidden;}
 .glass::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.11),transparent);}
 .ptitle{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:900;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:15px;display:flex;align-items:center;gap:8px;}
 .ptitle::before{content:'';width:3px;height:14px;background:linear-gradient(180deg,var(--gold),var(--gold2));border-radius:2px;}
+.frow{margin-bottom:13px;}
+.flbl{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;}
+select,input[type=text],input[type=number]{width:100%;padding:11px 14px;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.1);border-radius:9px;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:600;letter-spacing:1px;transition:border-color .2s;appearance:none;}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' fill='%23f5c518'%3E%3Cpath d='M0 0l5 7 5-7z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:36px;cursor:pointer;}
+select:focus,input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,197,24,.09);}
 
-/* RADAR */
+/* MATCHUP CARD */
+.matchup{background:linear-gradient(145deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.01) 100%);border:1px solid var(--border);border-radius:22px;padding:32px 20px 26px;position:relative;overflow:hidden;box-shadow:0 36px 72px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.06);margin-bottom:20px;}
+.matchup::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold),var(--cyan));}
+.vs-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;}
+.team-side{text-align:center;}
+.crest{width:88px;height:88px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:40px;border:2px solid rgba(255,255,255,.1);transition:transform .3s;}
+.crest:hover{transform:scale(1.07);}
+.tname{font-family:'Anton',sans-serif;font-size:clamp(13px,2.4vw,21px);letter-spacing:1px;text-transform:uppercase;line-height:1;}
+.ctag{display:inline-block;margin-top:5px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:var(--gold);border:1px solid rgba(245,197,24,.28);border-radius:2px;padding:2px 7px;}
+.score-center{text-align:center;min-width:170px;}
+.vs-chip{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:900;letter-spacing:4px;color:rgba(255,255,255,.22);margin-bottom:5px;}
+.score-box{background:#000;border:1px solid rgba(0,207,255,.38);border-radius:13px;padding:12px 16px;box-shadow:0 0 32px rgba(0,207,255,.1);}
+.score-num{font-family:'Anton',sans-serif;font-size:54px;letter-spacing:8px;color:var(--cyan);line-height:1;text-shadow:0 0 26px rgba(0,207,255,.6);animation:sglow 2s ease-in-out infinite;}
+@keyframes sglow{0%,100%{text-shadow:0 0 26px rgba(0,207,255,.6);}50%{text-shadow:0 0 46px rgba(0,207,255,.9);}}
+.score-lbl{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;color:var(--gold);margin-top:6px;text-transform:uppercase;}
+.prob-wrap{margin-top:20px;}
+.prob-track{height:10px;border-radius:5px;overflow:hidden;display:flex;background:rgba(0,0,0,.4);}
+.pb-w{background:linear-gradient(90deg,#00cfff,#0099cc);transition:width .7s cubic-bezier(.4,0,.2,1);}
+.pb-d{background:linear-gradient(90deg,#f5c518,#e08000);transition:width .7s cubic-bezier(.4,0,.2,1);}
+.pb-l{background:linear-gradient(90deg,#ff6b6b,#ff2d55);transition:width .7s cubic-bezier(.4,0,.2,1);}
+.prob-meta{display:grid;grid-template-columns:1fr 1fr 1fr;margin-top:9px;gap:6px;}
+.pm{text-align:center;}
+.pm-n{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:1px;line-height:1;}
+.pm-n.w{color:var(--cyan);}.pm-n.d{color:var(--gold);}.pm-n.l{color:var(--red);}
+.pm-k{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:2px;}
+.top3w{margin-top:16px;}
+.top3lbl{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:8px;}
+.top3row{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;}
+.t3c{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:9px;padding:8px 16px;text-align:center;transition:transform .2s;min-width:82px;}
+.t3c:first-child{border-color:rgba(245,197,24,.48);background:rgba(245,197,24,.05);}
+.t3c:first-child .t3s{color:var(--gold);}
+.t3s{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:3px;color:#fff;}
+.t3p{font-family:'Barlow Condensed',sans-serif;font-size:11px;color:var(--muted);margin-top:1px;font-weight:700;}
+/* SCENARIO */
+.sc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:14px;}
+@media(max-width:720px){.sc-row{grid-template-columns:repeat(2,1fr);}}
+.sc-btn{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase;padding:8px 6px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s;text-align:center;}
+.sc-btn:hover{border-color:rgba(245,197,24,.4);color:var(--gold);}
+.sc-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(245,197,24,.08);}
+.suplente-pick{margin-top:10px;display:none;}
+.suplente-pick.show{display:block;}
+
+/* LIVE SIM LOG */
+.ev-roja{color:var(--red);}
+.ev-gol{color:var(--cyan);}
+.ev-fatiga{color:rgba(255,255,255,.4);}
+.ev-fin{color:var(--green);font-weight:700;}
+.eventos-log{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:9px;padding:10px 12px;max-height:150px;overflow-y:auto;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.5px;line-height:1.7;margin-top:10px;}
+
+.disc{margin-top:14px;background:rgba(245,197,24,.05);border:1px solid rgba(245,197,24,.2);border-radius:10px;padding:11px 14px;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:1px;color:rgba(245,197,24,.7);line-height:1.5;}
+.disc strong{color:var(--gold);}
+
+.btn{width:100%;padding:14px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));background-size:200% auto;border:none;border-radius:11px;color:#000;font-family:'Anton',sans-serif;font-size:18px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;margin-top:7px;transition:background-position .4s,transform .1s;box-shadow:0 8px 22px rgba(245,197,24,.2);}
+.btn:hover{background-position:right center;}
+.btn:active{transform:scale(.98);}
+.group-nav{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:20px;}
+.gnav-btn{font-family:'Anton',sans-serif;font-size:13px;letter-spacing:2px;padding:6px 15px;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s;}
+.gnav-btn:hover,.gnav-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(245,197,24,.07);}
+
+/* TRIBUNA */
+.tscroll{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;}
+th{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--muted);padding:7px 9px;border-bottom:1px solid var(--border);text-align:left;}
+td{padding:9px;border-bottom:1px solid rgba(255,255,255,.04);font-size:13px;}
+.nick{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;letter-spacing:1px;}
+.match{font-family:'Barlow Condensed',sans-serif;font-size:12px;color:var(--muted);}
+.stag{display:inline-block;font-family:'Anton',sans-serif;font-size:16px;letter-spacing:2px;color:var(--cyan);background:rgba(0,207,255,.07);border:1px solid rgba(0,207,255,.18);border-radius:5px;padding:1px 8px;}
+tbody tr:hover{background:rgba(255,255,255,.02);}
+.emsg{text-align:center;padding:24px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
+
 #radar{display:block;margin:0 auto;}
-.rlegend{display:flex;justify-content:center;gap:20px;margin:7px 0 13px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+.rlegend{display:flex;justify-content:center;gap:20px;margin:7px 0 12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
 .rl{color:var(--cyan);}.rv{color:var(--red);}
-
-/* ATTR BARS */
 .arow{margin-bottom:11px;}
 .alabels{display:flex;justify-content:space-between;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
 .al{color:var(--cyan);}.am{color:var(--muted);font-size:10px;letter-spacing:2px;}.ar{color:var(--red);}
 .atrack{height:6px;background:rgba(0,0,0,.5);border-radius:3px;overflow:hidden;display:flex;}
 .at-l{background:linear-gradient(90deg,var(--cyan),#0099cc);transition:width .5s ease;}
 .at-r{background:linear-gradient(90deg,#cc0000,var(--red));margin-left:auto;transition:width .5s ease;}
-
-/* CONTROLS */
-.frow{margin-bottom:13px;}
-.flbl{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;}
-select,input[type=text],input[type=number]{width:100%;padding:11px 14px;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.1);border-radius:9px;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:600;letter-spacing:1px;transition:border-color .2s;appearance:none;}
-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' fill='%23f5c518'%3E%3Cpath d='M0 0l5 7 5-7z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:36px;cursor:pointer;}
-select:focus,input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(245,197,24,.09);}
-.spick{display:flex;align-items:center;gap:10px;}
-.spick input{text-align:center;font-family:'Anton',sans-serif !important;font-size:30px !important;padding:9px !important;}
-.ssep{font-family:'Anton',sans-serif;font-size:34px;color:var(--muted);flex-shrink:0;}
-.btn{width:100%;padding:15px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));background-size:200% auto;border:none;border-radius:11px;color:#000;font-family:'Anton',sans-serif;font-size:19px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;margin-top:7px;transition:background-position .4s,transform .1s,box-shadow .2s;box-shadow:0 8px 22px rgba(245,197,24,.2);}
-.btn:hover{background-position:right center;box-shadow:0 12px 32px rgba(245,197,24,.35);}
-.btn:active{transform:scale(.98);}
-
-/* MONTE CARLO PANEL */
-.mcg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:9px;}
-.mcc{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:11px;padding:13px 8px;text-align:center;}
-.mcn{font-family:'Anton',sans-serif;font-size:28px;letter-spacing:1px;line-height:1;}
-.mcn.w{color:var(--cyan);}.mcn.d{color:var(--gold);}.mcn.l{color:var(--red);}
-.mck{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:3px;}
-.mcavg{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:9px;padding:11px 14px;margin-bottom:10px;}
-.mcav{font-family:'Anton',sans-serif;font-size:20px;color:#fff;}
-.mcak{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
-
-/* EVENTOS LOG — La parte nueva más visible */
-.eventos-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
-.eventos-log{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:9px;padding:10px 12px;max-height:160px;overflow-y:auto;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.5px;line-height:1.7;}
-.ev-roja{color:var(--red);}
-.ev-lesion{color:var(--gold);}
-.ev-gol{color:var(--cyan);}
-.ev-fatiga{color:rgba(255,255,255,.4);}
-.ev-fin{color:var(--green);font-weight:700;}
-.ev-none{color:var(--muted);font-style:italic;}
-
-/* STATS EXTRA */
-.stats-extra{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
-.stat-box{background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:9px;padding:10px 12px;text-align:center;}
-.stat-val{font-family:'Anton',sans-serif;font-size:22px;color:#fff;}
-.stat-key{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-top:2px;}
-
-.spin-row{display:flex;align-items:center;justify-content:center;gap:9px;padding:18px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;}
-.spin{width:17px;height:17px;border:2px solid var(--border);border-top-color:var(--cyan);border-radius:50%;animation:spin .7s linear infinite;}
-@keyframes spin{to{transform:rotate(360deg);}}
-
-/* TRIBUNA */
-.tscroll{overflow-x:auto;}
-table{width:100%;border-collapse:collapse;}
-th{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--muted);padding:7px 9px;border-bottom:1px solid var(--border);text-align:left;}
-td{padding:10px 9px;border-bottom:1px solid rgba(255,255,255,.04);font-size:14px;}
-.nick{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;letter-spacing:1px;color:#fff;}
-.match{font-family:'Barlow Condensed',sans-serif;font-size:13px;color:var(--muted);}
-.stag{display:inline-block;font-family:'Anton',sans-serif;font-size:17px;letter-spacing:2px;color:var(--cyan);background:rgba(0,207,255,.07);border:1px solid rgba(0,207,255,.18);border-radius:5px;padding:1px 9px;}
-tbody tr:hover{background:rgba(255,255,255,.02);}
-.emsg{text-align:center;padding:26px;font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
-
-/* DISC */
-.disc{margin-top:16px;background:rgba(245,197,24,.05);border:1px solid rgba(245,197,24,.2);border-radius:10px;padding:12px 14px;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:1px;color:rgba(245,197,24,.7);line-height:1.5;}
-.disc strong{color:var(--gold);}
 
 @keyframes flash{0%{opacity:0;transform:scale(.82) translateY(6px);}60%{transform:scale(1.06) translateY(-2px);}100%{opacity:1;transform:scale(1) translateY(0);}}
 .flash{animation:flash .4s ease forwards;}
@@ -194,638 +220,655 @@ tbody tr:hover{background:rgba(255,255,255,.02);}
 </head>
 <body>
 <div class="bg"><div class="beam"></div><div class="beam"></div><div class="beam"></div><div class="beam"></div></div>
-
 <div class="wrap">
-  <header class="hdr">
-    <div class="eyebrow">⚡ CONMEBOL Libertadores 2026 · 32 Equipos Oficiales</div>
-    <h1 class="title"><span class="l1">ARENA</span><span class="l2">PREDICTIVA</span></h1>
-    <p class="subtitle">Motor v4 · Poisson Real · Fatiga · Expulsiones · Altura Dinámica · Suavizado</p>
-    <div class="divider"><span></span><strong>PRO · 2026</strong><span></span></div>
-    <div class="engine-chips">
-      <span class="echip c1">⚗️ Poisson Calibrado</span>
-      <span class="echip c2">⛰️ Altura Dinámica</span>
-      <span class="echip c3">🟥 Fatiga + Expulsiones</span>
-      <span class="echip c4">📐 Suavizado de Calidad</span>
-    </div>
-  </header>
 
-  <div class="group-nav" id="gnav"></div>
+<header class="hdr">
+  <div class="eyebrow">⚡ CONMEBOL Libertadores 2026 · Datos reales hasta Fecha 4</div>
+  <h1 class="title"><span class="l1">ARENA</span><span class="l2">PREDICTIVA</span></h1>
+  <p class="subtitle">Motor v5 · DB Recalibrada con Resultados Reales · Simulador de Campeón</p>
+  <div class="divider"><span></span><strong>PRO · 2026</strong><span></span></div>
+  <div class="engine-chips">
+    <span class="echip c1">⚗️ Poisson Real</span>
+    <span class="echip c2">⛰️ Altura Dinámica</span>
+    <span class="echip c3">🟥 Fatiga + Rojas</span>
+    <span class="echip c4">📐 Suavizado</span>
+    <span class="echip c1">🎭 Escenarios</span>
+    <span class="echip c2">🏆 Simulador de Campeón</span>
+  </div>
+</header>
 
-  <!-- MATCHUP -->
-  <div class="matchup">
-    <div class="vs-grid">
-      <div class="team-side">
-        <div class="crest" id="crest-l">🔵</div>
-        <div class="tname" id="name-l">LOCAL</div>
-        <div class="ctag" id="ctag-l">–</div>
-        <div class="group-tag" id="gtag-l"></div>
-      </div>
-      <div class="score-center">
-        <div class="vs-chip">CÁLCULO IA</div>
-        <div class="score-box">
-          <div class="score-num" id="score-ia">0–0</div>
-          <div class="score-lbl">RESULTADO MÁS PROBABLE</div>
-        </div>
-      </div>
-      <div class="team-side">
-        <div class="crest" id="crest-v">🔴</div>
-        <div class="tname" id="name-v">VISITANTE</div>
-        <div class="ctag" id="ctag-v">–</div>
-        <div class="group-tag" id="gtag-v"></div>
-      </div>
+<!-- ═══ POSICIONES REALES ═══ -->
+<div class="sec"><h2>Posiciones Reales</h2><div class="sec-line"></div><div class="sec-badge">Fecha 4 · Mayo 2026</div></div>
+<div class="groups-grid" id="groups-grid"></div>
+
+<!-- ═══ SIMULADOR DE CAMPEÓN ═══ -->
+<div class="sec" style="margin-top:36px;"><h2>¿Quién Gana la Copa?</h2><div class="sec-line"></div><div class="sec-badge">Monte Carlo 10,000 torneos</div></div>
+<button class="sim-btn" onclick="simularTorneo()">🏆 SIMULAR LIBERTADORES 2026 COMPLETA</button>
+<p class="sim-info">El motor simula 10,000 torneos completos desde octavos hasta la final · Datos calibrados con resultados reales</p>
+<div id="sim-spin" class="spin-row" style="display:none"><div class="spin"></div>Simulando 10,000 torneos…</div>
+<div id="sim-out" style="display:none">
+  <div class="champion-box" id="champ-box">
+    <div class="champ-eyebrow">🏆 Campeón más probable</div>
+    <div class="champ-icon" id="champ-icon">🏆</div>
+    <div class="champ-name" id="champ-name">–</div>
+    <div class="champ-country" id="champ-country">–</div>
+    <span class="champ-prob" id="champ-prob">–</span>
+    <div class="champ-prob-lbl">probabilidad de título</div>
+  </div>
+  <div class="odds-grid">
+    <div class="odds-panel">
+      <div class="odds-header">🥇 Favoritos al Título</div>
+      <div id="odds-title"></div>
     </div>
-    <div class="alt-badge" id="alt-badge">⛰️ ALTITUD EXTREMA (BOL) — PENALIZACIÓN DINÁMICA AL VISITANTE ACTIVA</div>
-    <div class="prob-wrap">
-      <div class="prob-track">
-        <div class="pb-w" id="pb-w" style="width:33%"></div>
-        <div class="pb-d" id="pb-d" style="width:34%"></div>
-        <div class="pb-l" id="pb-l" style="width:33%"></div>
-      </div>
-      <div class="prob-meta">
-        <div class="pm"><div class="pm-n w" id="pct-w">–</div><div class="pm-k">Gana Local</div></div>
-        <div class="pm"><div class="pm-n d" id="pct-d">–</div><div class="pm-k">Empate</div></div>
-        <div class="pm"><div class="pm-n l" id="pct-l">–</div><div class="pm-k">Gana Visit.</div></div>
-      </div>
-    </div>
-    <div class="top3w">
-      <div class="top3lbl">Top 3 resultados más probables</div>
-      <div class="top3row" id="top3"></div>
+    <div class="odds-panel">
+      <div class="odds-header">📊 Probabilidad de Semifinal</div>
+      <div id="odds-sf"></div>
     </div>
   </div>
+  <div class="bracket-wrap" style="margin-top:24px;">
+    <div class="sec"><h2>Bracket Más Probable</h2><div class="sec-line"></div><div class="sec-badge">Simulación típica</div></div>
+    <div class="bracket" id="bracket"></div>
+  </div>
+</div>
 
-  <!-- TÁCTICO + CONFIGURACIÓN -->
-  <div class="sec"><h2>Análisis Táctico</h2><div class="sec-line"></div><div class="sec-badge">5D + Motor v4</div></div>
-  <div class="two">
-    <div class="glass">
-      <div class="ptitle">Confrontación de Atributos</div>
-      <canvas id="radar" width="228" height="228"></canvas>
-      <div class="rlegend"><span class="rl">● <span id="rl-l">Local</span></span><span class="rv">● <span id="rl-v">Visitante</span></span></div>
-      <div id="abars"></div>
+<!-- ═══ SIMULADOR DE PARTIDO ═══ -->
+<div class="sec" style="margin-top:36px;"><h2>Simular Partido</h2><div class="sec-line"></div><div class="sec-badge">Motor v5</div></div>
+<div class="group-nav" id="gnav"></div>
+
+<div class="matchup" style="margin-top:18px;">
+  <div class="vs-grid">
+    <div class="team-side">
+      <div class="crest" id="crest-l">🔵</div>
+      <div class="tname" id="name-l">LOCAL</div>
+      <div class="ctag" id="ctag-l">–</div>
     </div>
-    <div class="glass">
-      <div class="ptitle">Configurar Partido</div>
-      <div class="frow"><label class="flbl">Equipo Local</label><select id="sel-l" onchange="update()"></select></div>
-      <div class="frow"><label class="flbl">Equipo Visitante</label><select id="sel-v" onchange="update()"></select></div>
-
-      <!-- PARÁMETROS DE LA LIGA -->
-      <div class="ptitle" style="margin-top:16px;">Parámetros del Motor</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
-        <div><label class="flbl">Prom. Goles/Partido Liga</label><input type="number" id="avg-liga" value="2.55" step="0.05" min="1.5" max="4.0"></div>
-        <div><label class="flbl">Simulaciones MC</label>
-          <select id="mc-n">
-            <option value="5000">5,000 (rápido)</option>
-            <option value="10000" selected>10,000 (estándar)</option>
-            <option value="25000">25,000 (preciso)</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="ptitle">Monte Carlo <span style="font-size:10px;color:var(--muted);font-weight:400;">minuto a minuto</span></div>
-      <div id="mc-spin" class="spin-row"><div class="spin"></div>Simulando partidos…</div>
-      <div id="mc-out" style="display:none">
-        <div class="mcg">
-          <div class="mcc"><div class="mcn w" id="mc-w">–</div><div class="mck">Gana Local</div></div>
-          <div class="mcc"><div class="mcn d" id="mc-d">–</div><div class="mck">Empate</div></div>
-          <div class="mcc"><div class="mcn l" id="mc-l">–</div><div class="mck">Gana Visit.</div></div>
-        </div>
-        <div class="mcavg">
-          <div><div class="mcav" id="mc-al">–</div><div class="mcak">Prom. goles local</div></div>
-          <div style="text-align:center"><div class="mcav" id="mc-rng">–</div><div class="mcak">Rango típico</div></div>
-          <div style="text-align:right"><div class="mcav" id="mc-av">–</div><div class="mcak">Prom. goles visit.</div></div>
-        </div>
-        <div class="stats-extra">
-          <div class="stat-box"><div class="stat-val" id="mc-rojas">–</div><div class="stat-key">🟥 Rojas promedio / partido</div></div>
-          <div class="stat-box"><div class="stat-val" id="mc-remontadas">–</div><div class="stat-key">⚡ % Remontadas</div></div>
-        </div>
-      </div>
+    <div class="score-center">
+      <div class="vs-chip">CÁLCULO IA</div>
+      <div class="score-box"><div class="score-num" id="score-ia">0–0</div><div class="score-lbl">MÁS PROBABLE</div></div>
+    </div>
+    <div class="team-side">
+      <div class="crest" id="crest-v">🔴</div>
+      <div class="tname" id="name-v">VISITANTE</div>
+      <div class="ctag" id="ctag-v">–</div>
     </div>
   </div>
+  <div class="prob-wrap">
+    <div class="prob-track">
+      <div class="pb-w" id="pb-w" style="width:33%"></div>
+      <div class="pb-d" id="pb-d" style="width:34%"></div>
+      <div class="pb-l" id="pb-l" style="width:33%"></div>
+    </div>
+    <div class="prob-meta">
+      <div class="pm"><div class="pm-n w" id="pct-w">–</div><div class="pm-k">Gana Local</div></div>
+      <div class="pm"><div class="pm-n d" id="pct-d">–</div><div class="pm-k">Empate</div></div>
+      <div class="pm"><div class="pm-n l" id="pct-l">–</div><div class="pm-k">Gana Visit.</div></div>
+    </div>
+  </div>
+  <div class="top3w">
+    <div class="top3lbl">Top 3 resultados más probables</div>
+    <div class="top3row" id="top3"></div>
+  </div>
+</div>
 
-  <!-- SIMULACIÓN EN VIVO (una sola) -->
-  <div class="sec" style="margin-top:28px;"><h2>Simulación en Vivo</h2><div class="sec-line"></div><div class="sec-badge">Partido Completo</div></div>
+<div class="two">
   <div class="glass">
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px;">
-      <button class="btn" style="flex:1;min-width:180px;" onclick="simularEnVivo()">▶ SIMULAR PARTIDO COMPLETO</button>
+    <div class="ptitle">Confrontación táctica</div>
+    <canvas id="radar" width="224" height="224"></canvas>
+    <div class="rlegend"><span class="rl">● <span id="rl-l">Local</span></span><span class="rv">● <span id="rl-v">Visitante</span></span></div>
+    <div id="abars"></div>
+  </div>
+  <div class="glass">
+    <div class="ptitle">Configurar partido</div>
+    <div class="frow"><label class="flbl">Local</label><select id="sel-l" onchange="updateMatch()"></select></div>
+    <div class="frow"><label class="flbl">Visitante</label><select id="sel-v" onchange="updateMatch()"></select></div>
+    <div class="flbl" style="margin-top:4px;">Contexto de partido</div>
+    <div class="sc-row">
+      <button class="sc-btn active" data-sc="normal" onclick="selSc('normal')">⚽ Normal</button>
+      <button class="sc-btn" data-sc="ida" onclick="selSc('ida')">🎯 Ida</button>
+      <button class="sc-btn" data-sc="autobus" onclick="selSc('autobus')">🚌 Autobús</button>
+      <button class="sc-btn" data-sc="suplente" onclick="selSc('suplente')">🔄 Equipo B</button>
     </div>
-    <div id="vivo-spin" class="spin-row" style="display:none"><div class="spin"></div>Jugando partido…</div>
-    <div id="vivo-out" style="display:none">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Resultado Final</div>
-        <div class="score-num" id="vivo-score" style="font-size:40px;letter-spacing:6px;animation:none;text-shadow:0 0 20px rgba(0,207,255,.5);">0–0</div>
-        <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);" id="vivo-winner"></div>
+    <div class="suplente-pick" id="suplente-pick">
+      <label class="flbl" style="margin-top:8px;">¿Quién rota?</label>
+      <select id="sel-suplente" onchange="updateMatch()"><option value="visitante">Visitante pone equipo B</option><option value="local">Local pone equipo B</option></select>
+    </div>
+    <button class="btn" style="margin-top:16px;" onclick="simLive()">▶ SIMULAR PARTIDO COMPLETO</button>
+    <div id="live-spin" class="spin-row" style="display:none;padding:14px;"><div class="spin"></div></div>
+    <div id="live-out" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Resultado</span>
+        <span class="score-num" id="live-score" style="font-size:32px;letter-spacing:5px;animation:none;text-shadow:0 0 16px rgba(0,207,255,.5);">0–0</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--green);" id="live-win"></span>
       </div>
-      <div class="eventos-title">📋 Bitácora del Partido</div>
-      <div class="eventos-log" id="eventos-log">–</div>
+      <div class="eventos-log" id="ev-log"></div>
+    </div>
+    <div class="disc"><strong>⚠</strong> Solo entretenimiento. <strong>No usar para apuestas.</strong></div>
+  </div>
+</div>
+
+<!-- TRIBUNA -->
+<div class="sec" style="margin-top:28px;"><h2>La Tribuna</h2><div class="sec-line"></div><div class="sec-badge" id="tcnt">0 PRONÓSTICOS</div></div>
+<div class="two">
+  <div class="glass">
+    <div class="ptitle">Tu Pronóstico</div>
+    <div class="frow"><label class="flbl">Apodo</label><input type="text" id="nick" placeholder="Ej: ElPibe10" maxlength="20"></div>
+    <div class="frow"><label class="flbl">Resultado</label>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <input type="number" id="gl" min="0" max="9" value="1" style="text-align:center;font-family:'Anton',sans-serif;font-size:28px;">
+        <span style="font-family:'Anton',sans-serif;font-size:32px;color:var(--muted);">–</span>
+        <input type="number" id="gv" min="0" max="9" value="1" style="text-align:center;font-family:'Anton',sans-serif;font-size:28px;">
+      </div>
+    </div>
+    <button class="btn" onclick="vote()">⚡ ENVIAR A LA TRIBUNA</button>
+  </div>
+  <div class="glass">
+    <div class="ptitle">Predicciones</div>
+    <div class="tscroll">
+      <table><thead><tr><th>Usuario</th><th>Partido</th><th>Pronóstico</th></tr></thead><tbody id="tbody"></tbody></table>
+      <div class="emsg" id="emsg">Sé el primero</div>
     </div>
   </div>
+</div>
 
-  <!-- TRIBUNA -->
-  <div class="sec" style="margin-top:28px;"><h2>La Tribuna</h2><div class="sec-line"></div><div class="sec-badge" id="tcnt">0 PRONÓSTICOS</div></div>
-  <div class="two">
-    <div class="glass">
-      <div class="ptitle">Tu Pronóstico</div>
-      <div class="frow"><label class="flbl">Tu apodo</label><input type="text" id="nick" placeholder="Ej: ElPibe10" maxlength="20"></div>
-      <div class="frow"><label class="flbl">Resultado que predecís</label>
-        <div class="spick"><input type="number" id="gl" min="0" max="9" value="1"><div class="ssep">–</div><input type="number" id="gv" min="0" max="9" value="1"></div>
-      </div>
-      <button class="btn" onclick="vote()">⚡ ENVIAR A LA TRIBUNA</button>
-      <div class="disc"><strong>⚠ IMPORTANTE:</strong> Solo entretenimiento. <strong>No usar para apuestas.</strong></div>
-    </div>
-    <div class="glass">
-      <div class="ptitle">Predicciones</div>
-      <div class="tscroll">
-        <table><thead><tr><th>Usuario</th><th>Partido</th><th>Pronóstico</th></tr></thead><tbody id="tbody"></tbody></table>
-        <div class="emsg" id="emsg">Sé el primero en pronosticar</div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="footer">Arena Predictiva PRO v4 · Libertadores 2026 · Poisson + Monte Carlo + Fatiga · Solo entretenimiento</footer>
+<footer class="footer">Arena Predictiva PRO v5 · Libertadores 2026 · Datos reales fecha 4 · Solo entretenimiento</footer>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════
-//  BASE DE DATOS — 32 EQUIPOS LIBERTADORES 2026
-// ═══════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════════════
+//  DB v5 — RECALIBRADA CON RESULTADOS REALES HASTA FECHA 4
+//  Metodología: xg/gc ajustados por rendimiento real en el torneo
+//  GF/90 min como proxy de xg real · GA/90 como gc real
+//  u10 actualizado con resultados del torneo (G=3,E=1,P=0)
+//  Promedio de goles Liga 2026: 2.1 por partido (dato Wikipedia)
+// ══════════════════════════════════════════════════════════════════════
+const AVG_LIGA = 2.10; // promedio real goles/partido Libertadores 2026
+
 const DB = {
-  // GRUPO A
-  "Flamengo (BRA)":        {p:"BRA",c:"#b71c1c",i:"🔴",grp:"A",xg:2.35,gc:0.72,pr:0.69,vi:0.54,wd:0.71,u10:[3,3,1,3,3,0,3,3,1,3],u3:[3,1,3],alt:false},
-  "Estudiantes LP (ARG)":  {p:"ARG",c:"#cc0000",i:"🦁",grp:"A",xg:1.62,gc:0.93,pr:0.58,vi:0.46,wd:0.56,u10:[3,1,3,1,0,3,1,3,3,0],u3:[1,3,3],alt:false},
-  "Cusco FC (PER)":        {p:"PER",c:"#8B4513",i:"🦙",grp:"A",xg:1.05,gc:1.45,pr:0.41,vi:0.22,wd:0.30,u10:[1,0,3,0,1,3,0,1,0,3],u3:[0,1,3],alt:false},
-  "Ind. Medellín (COL)":   {p:"COL",c:"#e63946",i:"❤️",grp:"A",xg:1.38,gc:1.12,pr:0.51,vi:0.36,wd:0.44,u10:[3,1,0,3,1,0,3,1,3,1],u3:[3,1,0],alt:false},
-  // GRUPO B
-  "Nacional (URU)":        {p:"URU",c:"#0055a5",i:"⬜",grp:"B",xg:1.68,gc:0.98,pr:0.57,vi:0.43,wd:0.55,u10:[3,3,1,0,3,3,1,3,1,3],u3:[3,1,3],alt:false},
-  "Universitario (PER)":   {p:"PER",c:"#c8b560",i:"🎽",grp:"B",xg:1.42,gc:1.08,pr:0.53,vi:0.37,wd:0.48,u10:[3,1,1,3,0,3,3,1,0,3],u3:[3,0,3],alt:false},
-  "Coquimbo Unido (CHI)":  {p:"CHI",c:"#FF6B00",i:"🟠",grp:"B",xg:1.10,gc:1.40,pr:0.44,vi:0.25,wd:0.32,u10:[1,3,0,1,3,0,1,0,3,1],u3:[0,3,1],alt:false},
-  "Deportes Tolima (COL)": {p:"COL",c:"#cc0000",i:"🐅",grp:"B",xg:1.28,gc:1.18,pr:0.49,vi:0.32,wd:0.40,u10:[1,3,0,3,1,0,3,1,0,3],u3:[1,0,3],alt:false},
-  // GRUPO C
-  "Fluminense (BRA)":      {p:"BRA",c:"#4a148c",i:"💜",grp:"C",xg:1.85,gc:1.05,pr:0.63,vi:0.40,wd:0.58,u10:[1,3,3,0,3,1,3,0,3,3],u3:[0,3,3],alt:false},
-  "Cruzeiro (BRA)":        {p:"BRA",c:"#0045a5",i:"🦊",grp:"C",xg:1.90,gc:0.95,pr:0.61,vi:0.45,wd:0.60,u10:[3,1,3,3,0,1,3,3,1,3],u3:[3,1,3],alt:false},
-  "Bolívar (BOL)":         {p:"BOL",c:"#0288d1",i:"🏔️",grp:"C",xg:1.55,gc:1.38,pr:0.54,vi:0.27,wd:0.42,u10:[3,3,0,3,1,3,0,3,3,0],u3:[3,3,0],alt:true},
-  "Dep. La Guaira (VEN)":  {p:"VEN",c:"#f5c518",i:"⚡",grp:"C",xg:1.18,gc:1.35,pr:0.46,vi:0.28,wd:0.36,u10:[3,1,0,1,3,0,3,1,0,3],u3:[1,0,3],alt:false},
-  // GRUPO D
-  "Boca Juniors (ARG)":    {p:"ARG",c:"#003b7a",i:"🟦",grp:"D",xg:2.05,gc:0.85,pr:0.64,vi:0.49,wd:0.66,u10:[3,3,1,3,0,3,3,1,3,3],u3:[3,3,3],alt:false},
-  "Cruzeiro-D (BRA)":      {p:"BRA",c:"#0045a5",i:"🦊",grp:"D",xg:1.90,gc:0.95,pr:0.61,vi:0.45,wd:0.60,u10:[3,1,3,3,0,1,3,3,1,3],u3:[3,1,3],alt:false,displayName:"Cruzeiro"},
-  "Univ. Católica (CHI)":  {p:"CHI",c:"#003087",i:"🔵",grp:"D",xg:1.65,gc:1.02,pr:0.58,vi:0.44,wd:0.54,u10:[3,1,3,3,1,0,3,3,1,3],u3:[1,3,3],alt:false},
-  "Barcelona SC (ECU)":    {p:"ECU",c:"#c8a000",i:"🟡",grp:"D",xg:1.58,gc:1.18,pr:0.55,vi:0.33,wd:0.45,u10:[3,0,1,3,3,0,3,1,3,1],u3:[1,3,1],alt:false},
-  // GRUPO E
-  "Peñarol (URU)":         {p:"URU",c:"#c8961a",i:"🟨",grp:"E",xg:1.72,gc:1.00,pr:0.57,vi:0.40,wd:0.54,u10:[3,3,0,1,3,3,0,3,1,3],u3:[3,1,3],alt:false},
-  "Corinthians (BRA)":     {p:"BRA",c:"#111",   i:"⬛",grp:"E",xg:1.65,gc:1.10,pr:0.56,vi:0.38,wd:0.52,u10:[1,3,3,0,3,1,3,0,3,3],u3:[3,0,3],alt:false},
-  "Santa Fe (COL)":        {p:"COL",c:"#cc0000",i:"❤️",grp:"E",xg:1.35,gc:1.15,pr:0.50,vi:0.34,wd:0.43,u10:[3,1,0,3,1,0,3,1,3,0],u3:[3,1,0],alt:false},
-  "Platense (ARG)":        {p:"ARG",c:"#aaa",   i:"🐟",grp:"E",xg:1.22,gc:1.28,pr:0.47,vi:0.30,wd:0.38,u10:[1,0,3,1,3,0,1,3,0,3],u3:[3,0,3],alt:false},
-  // GRUPO F
-  "Palmeiras (BRA)":       {p:"BRA",c:"#1b5e20",i:"🐷",grp:"F",xg:2.28,gc:0.68,pr:0.70,vi:0.59,wd:0.72,u10:[3,1,3,3,3,0,3,1,3,3],u3:[3,3,0],alt:false},
-  "Cerro Porteño (PAR)":   {p:"PAR",c:"#2e4053",i:"🌪️",grp:"F",xg:1.42,gc:1.08,pr:0.52,vi:0.38,wd:0.49,u10:[1,3,0,3,3,1,0,3,1,3],u3:[3,1,3],alt:false},
-  "Junior (COL)":          {p:"COL",c:"#d32f2f",i:"🦈",grp:"F",xg:1.60,gc:1.08,pr:0.56,vi:0.38,wd:0.51,u10:[3,1,0,3,3,1,0,3,1,3],u3:[3,1,3],alt:false},
-  "Sporting Cristal (PER)":{p:"PER",c:"#29b6f6",i:"💎",grp:"F",xg:1.25,gc:1.22,pr:0.48,vi:0.30,wd:0.38,u10:[3,1,1,0,3,3,1,0,3,1],u3:[0,3,1],alt:false},
-  // GRUPO G
-  "Liga de Quito (ECU)":   {p:"ECU",c:"#c62828",i:"⚪",grp:"G",xg:1.78,gc:0.98,pr:0.60,vi:0.44,wd:0.57,u10:[3,1,3,0,3,3,1,0,3,3],u3:[1,3,3],alt:false},
-  "Lanús (ARG)":           {p:"ARG",c:"#a50000",i:"🏴",grp:"G",xg:1.55,gc:1.05,pr:0.55,vi:0.40,wd:0.50,u10:[3,1,0,3,3,1,0,3,3,1],u3:[3,3,1],alt:false},
-  "Always Ready (BOL)":    {p:"BOL",c:"#cc0000",i:"🦅",grp:"G",xg:1.38,gc:1.42,pr:0.50,vi:0.24,wd:0.38,u10:[3,3,0,3,1,3,0,3,3,0],u3:[3,3,0],alt:true},
-  "Mirassol (BRA)":        {p:"BRA",c:"#007bff",i:"🌟",grp:"G",xg:1.42,gc:1.15,pr:0.53,vi:0.36,wd:0.44,u10:[3,1,0,3,1,3,0,1,3,3],u3:[1,3,3],alt:false},
-  // GRUPO H
-  "Ind. del Valle (ECU)":  {p:"ECU",c:"#1b2a47",i:"🖤",grp:"H",xg:1.82,gc:0.92,pr:0.61,vi:0.48,wd:0.59,u10:[3,3,1,3,0,1,3,3,0,3],u3:[3,0,3],alt:false},
-  "Libertad (PAR)":        {p:"PAR",c:"#1c2833",i:"👑",grp:"H",xg:1.52,gc:1.02,pr:0.55,vi:0.42,wd:0.51,u10:[3,1,3,3,0,1,3,1,3,0],u3:[1,3,0],alt:false},
-  "Rosario Central (ARG)": {p:"ARG",c:"#004d99",i:"🔵",grp:"H",xg:1.60,gc:1.05,pr:0.57,vi:0.42,wd:0.52,u10:[3,3,1,0,3,1,3,0,3,3],u3:[0,3,3],alt:false},
-  "Univ. Central (VEN)":   {p:"VEN",c:"#cc0000",i:"🎓",grp:"H",xg:1.15,gc:1.38,pr:0.44,vi:0.26,wd:0.34,u10:[1,3,0,1,3,0,1,0,3,1],u3:[0,1,3],alt:false},
+  // ─── GRUPO A ── Flamengo lidera 7pts, Estudiantes 5pts ─────────────
+  // Flamengo: 7 goles a favor en 3 partidos = 2.33/partido · 2 en contra
+  "Flamengo":          {p:"BRA",c:"#b71c1c",i:"🔴",grp:"A",pts:7,pj:3,gf:7,ga:2, xg:2.33,gc:0.67,pr:0.70,vi:0.60,wd:0.74,u10:[3,3,1,3,3,0,3,3,1,3],u3:[3,3,3],alt:false},
+  // Estudiantes: 4gf/3pj, 3ga, 2 invictos
+  "Estudiantes":       {p:"ARG",c:"#cc0000",i:"🦁",grp:"A",pts:5,pj:3,gf:4,ga:3, xg:1.53,gc:0.87,pr:0.60,vi:0.50,wd:0.58,u10:[3,1,3,1,0,3,1,3,3,0],u3:[1,1,3],alt:false},
+  // Ind. Medellín: 3gf/3pj, 5ga
+  "Ind. Medellín":     {p:"COL",c:"#e63946",i:"❤️",grp:"A",pts:4,pj:3,gf:3,ga:5, xg:1.10,gc:1.45,pr:0.48,vi:0.28,wd:0.41,u10:[3,1,0,3,1,0,3,1,3,1],u3:[1,1,0],alt:false},
+  // Cusco: 1gf/3pj, 5ga, eliminado
+  "Cusco FC":          {p:"PER",c:"#8B4513",i:"🦙",grp:"A",pts:0,pj:3,gf:1,ga:5, xg:0.80,gc:1.80,pr:0.35,vi:0.12,wd:0.22,u10:[1,0,3,0,1,3,0,1,0,3],u3:[0,0,1],alt:false},
+
+  // ─── GRUPO B ── Todos con 4pts tras fecha 3 (empate general) ───────
+  // Deportes Tolima: goleó 3-0 a Nacional en fecha 4
+  "Dep. Tolima":       {p:"COL",c:"#cc0000",i:"🐅",grp:"B",pts:7,pj:4,gf:7,ga:3, xg:1.75,gc:0.75,pr:0.58,vi:0.44,wd:0.52,u10:[3,1,0,3,1,3,3,1,0,3],u3:[3,3,1],alt:false},
+  // Coquimbo: ganó 2-1 a Universitario fecha 4
+  "Coquimbo Unido":    {p:"CHI",c:"#FF6B00",i:"🟠",grp:"B",pts:7,pj:4,gf:5,ga:4, xg:1.38,gc:1.00,pr:0.50,vi:0.38,wd:0.42,u10:[1,3,0,1,3,0,1,3,3,1],u3:[1,3,3],alt:false},
+  // Nacional Uruguay: cayó 0-3 ante Tolima en fecha 4
+  "Nacional (URU)":    {p:"URU",c:"#0055a5",i:"⬜",grp:"B",pts:4,pj:4,gf:6,ga:7, xg:1.50,gc:1.40,pr:0.55,vi:0.32,wd:0.50,u10:[3,3,1,0,3,3,1,3,1,3],u3:[3,1,0],alt:false},
+  // Universitario: cayó 1-2 ante Coquimbo fecha 4
+  "Universitario":     {p:"PER",c:"#c8b560",i:"🎽",grp:"B",pts:4,pj:4,gf:5,ga:6, xg:1.30,gc:1.30,pr:0.50,vi:0.30,wd:0.45,u10:[3,1,1,3,0,3,3,1,0,3],u3:[3,1,0],alt:false},
+
+  // ─── GRUPO C ── Ind. Rivadavia sorpresa: 9pts/3pj, 7gf/2ga ─────────
+  "Ind. Rivadavia":    {p:"ARG",c:"#003399",i:"🔵",grp:"C",pts:9,pj:3,gf:7,ga:2, xg:2.33,gc:0.67,pr:0.68,vi:0.65,wd:0.62,u10:[3,3,3,1,0,3,3,1,3,3],u3:[3,3,3],alt:false},
+  // Bolívar: 4pts, gana en altura (1.3goles en contra en 3pj)
+  "Bolívar":           {p:"BOL",c:"#0288d1",i:"🏔️",grp:"C",pts:4,pj:3,gf:3,ga:2, xg:1.38,gc:0.85,pr:0.55,vi:0.42,wd:0.48,u10:[3,3,0,3,1,3,0,3,3,0],u3:[3,1,3],alt:true},
+  // Dep. La Guaira: 2pts (2 empates), 2gf/5ga
+  "Dep. La Guaira":    {p:"VEN",c:"#f5c518",i:"⚡",grp:"C",pts:2,pj:3,gf:2,ga:5, xg:1.00,gc:1.50,pr:0.42,vi:0.22,wd:0.30,u10:[3,1,0,1,3,0,3,1,0,3],u3:[1,1,0],alt:false},
+  // Fluminense: sólo 1pt, 1gf/4ga — en crisis
+  "Fluminense":        {p:"BRA",c:"#4a148c",i:"💜",grp:"C",pts:1,pj:3,gf:1,ga:4, xg:0.90,gc:1.35,pr:0.50,vi:0.22,wd:0.45,u10:[1,3,3,0,3,1,3,0,3,3],u3:[0,0,1],alt:false},
+
+  // ─── GRUPO D ── Trío con 6pts (UC, Boca, Cruzeiro), Barcelona 3pts ──
+  // UC Chilena: lidera por diferencia, 5gf/4ga
+  "U. Católica (CHI)": {p:"CHI",c:"#003087",i:"🔵",grp:"D",pts:6,pj:3,gf:5,ga:4, xg:1.67,gc:1.10,pr:0.60,vi:0.42,wd:0.56,u10:[3,1,3,3,1,0,3,3,1,3],u3:[3,3,0],alt:false},
+  // Boca: 6pts/4pj (perdió ante Barcelona), 5gf/3ga
+  "Boca Juniors":      {p:"ARG",c:"#003b7a",i:"🟦",grp:"D",pts:6,pj:4,gf:5,ga:3, xg:1.67,gc:0.75,pr:0.65,vi:0.55,wd:0.68,u10:[3,3,1,3,0,3,3,1,3,3],u3:[3,3,0],alt:false},
+  // Cruzeiro: 6pts/3pj, 3gf/2ga
+  "Cruzeiro":          {p:"BRA",c:"#0045a5",i:"🦊",grp:"D",pts:6,pj:3,gf:3,ga:2, xg:1.40,gc:0.67,pr:0.62,vi:0.55,wd:0.62,u10:[3,1,3,3,0,1,3,3,1,3],u3:[3,1,3],alt:false},
+  // Barcelona: 3pts/4pj (ganó a Boca), 2gf/6ga
+  "Barcelona SC":      {p:"ECU",c:"#c8a000",i:"🟡",grp:"D",pts:3,pj:4,gf:2,ga:6, xg:0.85,gc:1.50,pr:0.45,vi:0.20,wd:0.38,u10:[3,0,1,3,3,0,3,1,3,1],u3:[3,1,0],alt:false},
+
+  // ─── GRUPO E ── Corinthians perfecto 9pts, Platense 6pts ───────────
+  // Corinthians: 9pts, 6gf/0ga — imbatible
+  "Corinthians":       {p:"BRA",c:"#111",   i:"⬛",grp:"E",pts:9,pj:3,gf:6,ga:0, xg:2.20,gc:0.15,pr:0.72,vi:0.85,wd:0.70,u10:[3,3,3,0,3,1,3,0,3,3],u3:[3,3,3],alt:false},
+  // Platense: 6pts, 4gf/4ga — sorpresa argentina
+  "Platense":          {p:"ARG",c:"#aaa",   i:"🐟",grp:"E",pts:6,pj:3,gf:4,ga:4, xg:1.48,gc:1.30,pr:0.52,vi:0.40,wd:0.45,u10:[1,0,3,1,3,0,1,3,0,3],u3:[3,3,0],alt:false},
+  // Peñarol: 1pt, 2gf/5ga — en caída libre
+  "Peñarol":           {p:"URU",c:"#c8961a",i:"🟨",grp:"E",pts:1,pj:3,gf:2,ga:5, xg:1.00,gc:1.60,pr:0.48,vi:0.25,wd:0.44,u10:[3,3,0,1,3,3,0,3,1,3],u3:[0,1,0],alt:false},
+  // Santa Fe: 1pt, 2gf/5ga
+  "Santa Fe":          {p:"COL",c:"#cc0000",i:"❤️",grp:"E",pts:1,pj:3,gf:2,ga:5, xg:1.00,gc:1.60,pr:0.46,vi:0.22,wd:0.38,u10:[3,1,0,3,1,0,3,1,3,0],u3:[0,0,1],alt:false},
+
+  // ─── GRUPO F ── Palmeiras 8pts/4pj, Sporting Cristal 6pts/4pj ──────
+  // Palmeiras: lidera, pero con empates incluidos — 6gf/3ga
+  "Palmeiras":         {p:"BRA",c:"#1b5e20",i:"🐷",grp:"F",pts:8,pj:4,gf:6,ga:3, xg:2.00,gc:0.75,pr:0.68,vi:0.58,wd:0.70,u10:[3,1,3,3,3,0,3,1,3,3],u3:[3,1,3],alt:false},
+  // Sporting Cristal: 6pts/4pj, 4gf/4ga — ganó a Junior, perdió ante Palmeiras
+  "Sporting Cristal":  {p:"PER",c:"#29b6f6",i:"💎",grp:"F",pts:6,pj:4,gf:4,ga:4, xg:1.35,gc:1.00,pr:0.52,vi:0.42,wd:0.45,u10:[3,1,1,0,3,3,3,1,0,3],u3:[3,0,3],alt:false},
+  // Cerro Porteño: 4pts, 2gf/2ga — sólido defensivamente
+  "Cerro Porteño":     {p:"PAR",c:"#2e4053",i:"🌪️",grp:"F",pts:4,pj:3,gf:2,ga:2, xg:1.00,gc:0.80,pr:0.50,vi:0.50,wd:0.48,u10:[1,3,0,3,3,1,0,3,1,3],u3:[1,3,1],alt:false},
+  // Junior: 1pt/3pj, 1gf/4ga — en fondo
+  "Junior":            {p:"COL",c:"#d32f2f",i:"🦈",grp:"F",pts:1,pj:3,gf:1,ga:4, xg:0.80,gc:1.38,pr:0.42,vi:0.20,wd:0.36,u10:[3,1,0,3,3,1,0,3,1,3],u3:[0,0,1],alt:false},
+
+  // ─── GRUPO G ── Liga de Quito 6pts, Lanús 6pts/4pj ─────────────────
+  // Liga de Quito: 6pts/3pj, 3gf/1ga
+  "Liga de Quito":     {p:"ECU",c:"#c62828",i:"⚪",grp:"G",pts:6,pj:3,gf:3,ga:1, xg:1.40,gc:0.45,pr:0.62,vi:0.70,wd:0.60,u10:[3,1,3,0,3,3,1,0,3,3],u3:[3,3,1],alt:false},
+  // Mirassol: 6pts/3pj, 3gf/2ga — sorpresa brasileña
+  "Mirassol":          {p:"BRA",c:"#007bff",i:"🌟",grp:"G",pts:6,pj:3,gf:3,ga:2, xg:1.30,gc:0.80,pr:0.54,vi:0.50,wd:0.46,u10:[3,1,0,3,1,3,0,1,3,3],u3:[3,3,0],alt:false},
+  // Lanús: 6pts/4pj, pero cayó 0-4 ante Always Ready (altitud!)
+  "Lanús":             {p:"ARG",c:"#a50000",i:"🏴",grp:"G",pts:6,pj:4,gf:2,ga:5, xg:1.10,gc:1.20,pr:0.50,vi:0.38,wd:0.48,u10:[3,1,0,3,3,1,0,3,3,1],u3:[3,1,0],alt:false},
+  // Always Ready: 3pts/4pj, 4gf/4ga — ARRASÓ 4-0 a Lanús en altitud
+  "Always Ready":      {p:"BOL",c:"#cc0000",i:"🦅",grp:"G",pts:3,pj:4,gf:4,ga:4, xg:1.20,gc:1.05,pr:0.48,vi:0.35,wd:0.40,u10:[3,3,0,3,1,3,0,3,3,0],u3:[3,0,0],alt:true},
+
+  // ─── GRUPO H ── Rosario Central 10pts perfecto! ──────────────────────
+  // Rosario Central: 10pts/4pj, 5gf/0ga — INVICTO SIN GOLES EN CONTRA
+  "Rosario Central":   {p:"ARG",c:"#004d99",i:"🔵",grp:"H",pts:10,pj:4,gf:5,ga:0, xg:1.75,gc:0.15,pr:0.65,vi:0.95,wd:0.65,u10:[3,3,1,0,3,1,3,0,3,3],u3:[3,3,3],alt:false},
+  // Ind. del Valle: 7pts/4pj, 6gf/5ga
+  "Ind. del Valle":    {p:"ECU",c:"#1b2a47",i:"🖤",grp:"H",pts:7,pj:4,gf:6,ga:5, xg:1.80,gc:1.25,pr:0.60,vi:0.38,wd:0.58,u10:[3,3,1,3,0,1,3,3,0,3],u3:[3,3,0],alt:false},
+  // UCV: 6pts/4pj (venció 2-0 a Ind. del Valle!), 6gf/7ga
+  "Univ. Central":     {p:"VEN",c:"#cc0000",i:"🎓",grp:"H",pts:6,pj:4,gf:6,ga:7, xg:1.60,gc:1.75,pr:0.52,vi:0.22,wd:0.38,u10:[1,3,0,1,3,0,1,0,3,1],u3:[3,3,0],alt:false},
+  // Libertad: 0pts/4pj, 3gf/8ga — eliminado
+  "Libertad":          {p:"PAR",c:"#1c2833",i:"👑",grp:"H",pts:0,pj:4,gf:3,ga:8, xg:0.85,gc:2.00,pr:0.42,vi:0.10,wd:0.30,u10:[3,1,3,3,0,1,3,1,3,0],u3:[0,0,0],alt:false},
 };
 
+// ══════════════════════════════════════════════════════════════════════
+//  GRUPOS — datos para tabla de posiciones visual
+// ══════════════════════════════════════════════════════════════════════
 const GRUPOS = {
-  A:["Flamengo (BRA)","Estudiantes LP (ARG)","Cusco FC (PER)","Ind. Medellín (COL)"],
-  B:["Nacional (URU)","Universitario (PER)","Coquimbo Unido (CHI)","Deportes Tolima (COL)"],
-  C:["Fluminense (BRA)","Cruzeiro (BRA)","Bolívar (BOL)","Dep. La Guaira (VEN)"],
-  D:["Boca Juniors (ARG)","Cruzeiro-D (BRA)","Univ. Católica (CHI)","Barcelona SC (ECU)"],
-  E:["Peñarol (URU)","Corinthians (BRA)","Santa Fe (COL)","Platense (ARG)"],
-  F:["Palmeiras (BRA)","Cerro Porteño (PAR)","Junior (COL)","Sporting Cristal (PER)"],
-  G:["Liga de Quito (ECU)","Lanús (ARG)","Always Ready (BOL)","Mirassol (BRA)"],
-  H:["Ind. del Valle (ECU)","Libertad (PAR)","Rosario Central (ARG)","Univ. Central (VEN)"],
+  A: ["Flamengo","Estudiantes","Ind. Medellín","Cusco FC"],
+  B: ["Dep. Tolima","Coquimbo Unido","Nacional (URU)","Universitario"],
+  C: ["Ind. Rivadavia","Bolívar","Dep. La Guaira","Fluminense"],
+  D: ["U. Católica (CHI)","Boca Juniors","Cruzeiro","Barcelona SC"],
+  E: ["Corinthians","Platense","Peñarol","Santa Fe"],
+  F: ["Palmeiras","Sporting Cristal","Cerro Porteño","Junior"],
+  G: ["Liga de Quito","Mirassol","Lanús","Always Ready"],
+  H: ["Rosario Central","Ind. del Valle","Univ. Central","Libertad"],
 };
 
-const ATTRS=[
-  {k:"forma",   lbl:"Forma reciente", w:.30},
-  {k:"ataque",  lbl:"Poder ofensivo", w:.25},
-  {k:"defensa", lbl:"Sol. defensiva", w:.25},
-  {k:"presion", lbl:"Bajo presión",   w:.10},
-  {k:"momentum",lbl:"Momentum",       w:.10},
+// Clasificados proyectados (top 2 de cada grupo) para el simulador de torneo
+// Basado en posiciones actuales a fecha 4
+const CLASIFICADOS_R16 = [
+  // Primeros
+  "Flamengo","Dep. Tolima","Ind. Rivadavia","Boca Juniors",
+  "Corinthians","Palmeiras","Liga de Quito","Rosario Central",
+  // Segundos
+  "Estudiantes","Coquimbo Unido","Bolívar","U. Católica (CHI)",
+  "Platense","Sporting Cristal","Mirassol","Ind. del Valle",
 ];
 
-let votes = JSON.parse(localStorage.getItem("apv2026")||"[]");
+const ATTRS=[{k:"forma",lbl:"Forma reciente",w:.30},{k:"ataque",lbl:"Poder ofensivo",w:.25},{k:"defensa",lbl:"Sol. defensiva",w:.25},{k:"presion",lbl:"Bajo presión",w:.10},{k:"momentum",lbl:"Momentum",w:.10}];
 
-// ═══════════════════════════════════════════════════════
-//  MEJORA 1: DISTRIBUCIÓN DE POISSON REAL
-//  Expectativa = xg_local * (gc_rival / avg_liga) * factor_local
-//  Esto ancla los lambdas al promedio real de la liga
-// ═══════════════════════════════════════════════════════
-function getAvgLiga(){ return parseFloat(document.getElementById("avg-liga").value) || 2.55; }
+let votes = JSON.parse(localStorage.getItem("apv2026v5")||"[]");
+let currentSc = "normal";
 
-function poisson(k, lambda){
-  // P(X=k) = e^-λ * λ^k / k!
-  let r = Math.exp(-lambda);
-  for(let i=1; i<=k; i++) r *= lambda/i;
-  return r;
-}
+// ══════════════════════════════════════════════════════════════════════
+//  MOTOR MATEMÁTICO
+// ══════════════════════════════════════════════════════════════════════
+function poisson(k,l){let r=Math.exp(-l);for(let i=1;i<=k;i++)r*=l/i;return r;}
+function sampleP(l){const L=Math.exp(-l);let k=0,p=1;do{k++;p*=Math.random();}while(p>L);return k-1;}
 
-// Muestra Poisson por método de Knuth (eficiente hasta λ~30)
-function samplePoisson(lambda){
-  const L = Math.exp(-lambda);
-  let k=0, p=1;
-  do { k++; p *= Math.random(); } while(p > L);
-  return k - 1;
-}
-
-// ═══════════════════════════════════════════════════════
-//  MEJORA 4: SUAVIZADO DE CALIDAD (raíz cuadrada atenuada)
-//  Reduce brecha lineal entre equipos grandes y chicos
-//  Factor = sqrt(ratio) en vez de ratio directo
-// ═══════════════════════════════════════════════════════
-function suavizar(val, min=0.5, max=2.0){
-  // Normaliza al rango [0.5, 2.0] con sqrt para aplanar extremos
-  const norm = (val - min) / (max - min);        // 0..1
-  return min + (max - min) * Math.sqrt(Math.max(0, Math.min(1, norm)));
-}
-
-function calcWeights(d){
-  const forma    = d.u10.reduce((a,b)=>a+b,0) / 30;
-  const ataque   = ((d.xg/2.5) + d.pr) / 2;
-  const defensa  = (d.vi + (2.5 - d.gc) / 2.5) / 2;
-  const presion  = d.wd;
-  const momentum = d.u3.reduce((a,b)=>a+b,0) / 9;
-  return { forma, ataque, defensa, presion, momentum };
-}
-
-function calcFuerza(p){
-  // Fuerza compuesta ponderada
-  return p.forma*.30 + p.ataque*.25 + p.defensa*.25 + p.presion*.10 + p.momentum*.10;
-}
-
-// Lambda base usando fórmula Poisson estándar del fútbol:
-//   λ_local = xg_local * (gc_visitante / prom_liga) * factor_local
-//   λ_visit = xg_visit * (gc_local    / prom_liga)
-// Luego se multiplica por la fuerza suavizada relativa
-function getLambdas(dL, dV){
-  const avgLiga = getAvgLiga();
-  const pL = calcWeights(dL), pV = calcWeights(dV);
-  const fL = calcFuerza(pL),  fV = calcFuerza(pV);
-
-  // Suavizar la fuerza relativa (MEJORA 4)
-  const ratioL = suavizar(fL / Math.max(fV, 0.01), 0.5, 2.0);
-  const ratioV = suavizar(fV / Math.max(fL, 0.01), 0.5, 2.0);
-
-  // Factor localía base +15% (dinámico, se multiplica después en MC por altitud)
-  const factorLocal = 1.15;
-
-  // Poisson calibrado con promedio de liga real
-  const ll = dL.xg * (dV.gc / avgLiga) * factorLocal * ratioL;
-  const lv = dV.xg * (dL.gc / avgLiga) * ratioV;
-
-  return { ll, lv, pL, pV };
-}
-
-// ═══════════════════════════════════════════════════════
-//  MEJORA 2 + 3: MONTE CARLO MINUTO A MINUTO
-//  Simula 90 minutos con:
-//  - Eventos dinámicos (rojas, lesiones) cada bloque de 10 min
-//  - Fatiga defensiva post-70'
-//  - Penalización progresiva por altura si alt:true
-// ═══════════════════════════════════════════════════════
-function simularPartidoCompleto(dL, dV, registrarEventos=false){
-  const avgLiga = getAvgLiga();
-  const pL = calcWeights(dL), pV = calcWeights(dV);
-  const fL0 = calcFuerza(pL), fV0 = calcFuerza(pV);
-
-  const ratioL = suavizar(fL0 / Math.max(fV0, 0.01), 0.5, 2.0);
-  const ratioV = suavizar(fV0 / Math.max(fL0, 0.01), 0.5, 2.0);
-
-  let lambdaL = dL.xg * (dV.gc / avgLiga) * 1.15 * ratioL;
-  let lambdaV = dV.xg * (dL.gc / avgLiga) * ratioV;
-
-  // Convertir a tasa por minuto (λ / 90)
-  let rateL = lambdaL / 90;
-  let rateV = lambdaV / 90;
-
-  let golesL = 0, golesV = 0;
-  let rojaL = false, rojaV = false;   // si ya hay una roja en ese equipo
-  let cantRojas = 0;
-  const eventos = [];
-
-  // --- Nombres cortos para el log ---
-  const nomL = (dL.displayName || Object.keys(DB).find(k=>DB[k]===dL) || "Local").split(" (")[0];
-  const nomV = (dV.displayName || Object.keys(DB).find(k=>DB[k]===dV) || "Visitante").split(" (")[0];
-
-  for(let bloque=0; bloque<9; bloque++){
-    const minInicio = bloque * 10 + 1;
-    const minFin    = bloque * 10 + 10;
-
-    // ── MEJORA 3: Altitud dinámica
-    // A partir del min 30, si el local juega en altitud,
-    // el visitante pierde 0-15% progresivo de su xg y momentum
-    if(dL.alt && bloque >= 3){
-      const decaimiento = Math.min(0.15, (bloque - 2) * 0.03); // 3%,6%,9%,12%,15%,15%
-      rateV = (lambdaV / 90) * (1 - decaimiento);
-      if(registrarEventos && bloque===3)
-        eventos.push({min:minInicio,tipo:"fatiga",txt:`⛰️ Min ${minInicio}: La altitud empieza a pesar — visitante pierde ritmo ofensivo`});
-    }
-
-    // ── MEJORA 2: Fatiga post-70'
-    // Defensas con menor forma u10 ceden más goles al final
-    if(bloque >= 7){
-      const formaL = pL.forma; // 0..1
-      const formaV = pV.forma;
-      // Si la forma defensiva del local es baja, concede más
-      const fatigaMult_L = 1 + (0.6 - formaV) * 0.3; // sube si visitante está cansado
-      const fatigaMult_V = 1 + (0.6 - formaL) * 0.3;
-      rateL = (lambdaL / 90) * (rojaL ? 0.80 : 1.0) * fatigaMult_L;
-      rateV = (lambdaV / 90) * (rojaV ? 0.80 : 1.0) * fatigaMult_V;
-      if(registrarEventos && bloque===7)
-        eventos.push({min:minInicio,tipo:"fatiga",txt:`😤 Min ${minInicio}: Entra la fatiga — las defensas empiezan a ceder`});
-    }
-
-    // ── MEJORA 2: Eventos aleatorios (roja/lesión) — prob 2% por bloque
-    if(Math.random() < 0.022){
-      cantRojas++;
-      // El equipo más vulnerable (menos "presion") tiene más chances de recibir roja
-      const umbral = dL.wd / (dL.wd + dV.wd); // prob de que la roja sea del local
-      const esLocal = Math.random() < umbral;
-      const minEvento = minInicio + Math.floor(Math.random() * 10);
-
-      if(esLocal){
-        rojaL = true;
-        lambdaL *= 0.80; // pierde 20% de fuerza ofensiva
-        rateL = (lambdaL / 90);
-        if(registrarEventos)
-          eventos.push({min:minEvento,tipo:"roja",txt:`🟥 Min ${minEvento}: ¡TARJETA ROJA! ${nomL} queda con 10 — pierde 20% de fuerza ofensiva`});
-      } else {
-        rojaV = true;
-        lambdaV *= 0.80;
-        rateV = (lambdaV / 90);
-        if(registrarEventos)
-          eventos.push({min:minEvento,tipo:"roja",txt:`🟥 Min ${minEvento}: ¡TARJETA ROJA! ${nomV} queda con 10 — pierde 20% de fuerza ofensiva`});
-      }
-    }
-
-    // ── Simular goles en los 10 minutos del bloque (Poisson por minuto)
-    for(let m=minInicio; m<=minFin; m++){
-      if(Math.random() < rateL){
-        golesL++;
-        if(registrarEventos) eventos.push({min:m,tipo:"gol",txt:`⚽ Min ${m}: ¡GOL de ${nomL}! (${golesL}–${golesV})`});
-      }
-      if(Math.random() < rateV){
-        golesV++;
-        if(registrarEventos) eventos.push({min:m,tipo:"gol",txt:`⚽ Min ${m}: ¡GOL de ${nomV}! (${golesL}–${golesV})`});
-      }
-    }
-  }
-
-  if(registrarEventos)
-    eventos.push({min:90,tipo:"fin",txt:`🏁 FINAL: ${nomL} ${golesL} – ${golesV} ${nomV}`});
-
-  return { golesL, golesV, cantRojas, eventos };
-}
-
-// ── Monte Carlo: N simulaciones con motor minuto a minuto
-function monteCarlo(dL, dV){
-  const N = parseInt(document.getElementById("mc-n").value) || 10000;
-  let win=0, draw=0, lose=0, tl=0, tv=0, totalRojas=0, remontadas=0;
-  let prevGolesL, prevGolesV;
-
-  for(let i=0; i<N; i++){
-    const {golesL, golesV, cantRojas} = simularPartidoCompleto(dL, dV, false);
-    tl += golesL; tv += golesV; totalRojas += cantRojas;
-    if(golesL > golesV) win++;
-    else if(golesL === golesV) draw++;
-    else lose++;
-    // Contar "remontadas": el que iba perdiendo a mitad del partido ganó al final
-    // Aproximamos: si los goles del ganador son 2+ más que el perdedor → posible remontada
-    if(golesL > golesV && golesV > 0) remontadas++;
-    if(golesV > golesL && golesL > 0) remontadas++;
-  }
-  return {
-    w: win/N, d: draw/N, l: lose/N,
-    al: tl/N, av: tv/N,
-    rojas: totalRojas/N,
-    remontadas: remontadas/N
+function weights(d){
+  // Incorporar rendimiento real del torneo (pts/pj) como factor corrector
+  const rendimiento = d.pts && d.pj ? (d.pts/d.pj)/3 : 0.5; // normalizado 0-1
+  return{
+    forma:    d.u10.reduce((a,b)=>a+b,0)/30 * 0.7 + rendimiento * 0.3,
+    ataque:   ((d.xg/2.5)+d.pr)/2,
+    defensa:  (d.vi+(2.5-d.gc)/2.5)/2,
+    presion:  d.wd,
+    momentum: d.u3.reduce((a,b)=>a+b,0)/9,
   };
 }
 
-// ── Top 3 resultados más probables (Poisson analítico)
-function top3(ll, lv){
-  let arr=[], tot=0;
-  for(let l=0;l<8;l++) for(let v=0;v<8;v++){
-    const p = poisson(l,ll) * poisson(v,lv);
-    arr.push({l,v,p}); tot+=p;
+function suavizar(val){
+  const mn=0.5,mx=2.0,norm=(val-mn)/(mx-mn);
+  return mn+(mx-mn)*Math.sqrt(Math.max(0,Math.min(1,norm)));
+}
+
+function applyScenario(dLr,dVr){
+  const dL={...dLr},dV={...dVr};
+  if(currentSc==="ida"){dL.xg*=1.15;dV.gc*=0.90;}
+  else if(currentSc==="autobus"){dV.gc*=0.70;dV.xg*=0.50;dV.pr*=0.70;dV.wd*=0.80;}
+  else if(currentSc==="suplente"){
+    const who=document.getElementById("sel-suplente")?.value||"visitante";
+    const t=who==="local"?dL:dV;
+    t.xg*=0.80;t.gc/=0.80;t.pr*=0.80;t.vi*=0.80;t.wd*=0.80;
   }
+  return{dL,dV};
+}
+
+function getLambdas(dLr,dVr){
+  const{dL,dV}=applyScenario(dLr,dVr);
+  const pL=weights(dL),pV=weights(dV);
+  const fL=pL.forma*.30+pL.ataque*.25+pL.defensa*.25+pL.presion*.10+pL.momentum*.10;
+  const fV=pV.forma*.30+pV.ataque*.25+pV.defensa*.25+pV.presion*.10+pV.momentum*.10;
+  const rL=suavizar(fL/Math.max(fV,0.01)),rV=suavizar(fV/Math.max(fL,0.01));
+  const ll=dL.xg*(dV.gc/AVG_LIGA)*1.15*rL;
+  const lv=dV.xg*(dL.gc/AVG_LIGA)*rV;
+  return{ll,lv,pL,pV};
+}
+
+function simPartido(dL,dV){
+  // Simulación minuto a minuto sin registrar eventos (rápida para MC)
+  const{ll,lv,pL,pV}=getLambdas(dL,dV);
+  let lambdaL=ll,lambdaV=lv;
+  let rateL=ll/90,rateV=lv/90;
+  let gL=0,gV=0,rojL=false,rojV=false,rojas=0;
+  for(let b=0;b<9;b++){
+    if(dL.alt&&b>=3){const dec=Math.min(0.15,(b-2)*.03);rateV=(lambdaV/90)*(1-dec);}
+    if(b>=7){rateL=(lambdaL/90)*(rojL?.80:1)*(1+(0.6-pV.forma)*.3);rateV=(lambdaV/90)*(rojV?.80:1)*(1+(0.6-pL.forma)*.3);}
+    if(Math.random()<0.022){
+      rojas++;
+      const esL=Math.random()<dL.wd/(dL.wd+dV.wd);
+      if(esL){rojL=true;lambdaL*=.80;rateL=lambdaL/90;}
+      else{rojV=true;lambdaV*=.80;rateV=lambdaV/90;}
+    }
+    for(let m=b*10+1;m<=b*10+10;m++){if(Math.random()<rateL)gL++;if(Math.random()<rateV)gV++;}
+  }
+  return{gL,gV,rojas};
+}
+
+function simPartidoLog(dLr,dVr,nomL,nomV){
+  const{dL,dV}=applyScenario(dLr,dVr);
+  const{ll,lv,pL,pV}=getLambdas(dL,dV);
+  let lambdaL=ll,lambdaV=lv,rateL=ll/90,rateV=lv/90;
+  let gL=0,gV=0,rojL=false,rojV=false;
+  const evs=[];
+  const scTxt={normal:null,ida:`🎯 Partido de Ida: ${nomL} +15% ataque, ${nomV} más defensivo`,autobus:`🚌 ${nomV} pone el autobús — defensa +30%, ataque −50%`,suplente:`🔄 Equipo B activo — penalización −20%`};
+  if(scTxt[currentSc])evs.push({m:0,tipo:"fatiga",txt:scTxt[currentSc]});
+  for(let b=0;b<9;b++){
+    if(dL.alt&&b>=3){const dec=Math.min(0.15,(b-2)*.03);rateV=(lambdaV/90)*(1-dec);if(b===3)evs.push({m:b*10+1,tipo:"fatiga",txt:`⛰️ Min ${b*10+1}: La altitud empieza a pesar en ${nomV}`});}
+    if(b>=7){if(b===7)evs.push({m:71,tipo:"fatiga",txt:`😤 Min 71: Fatiga — defensas cediendo`});rateL=(lambdaL/90)*(rojL?.80:1)*(1+(0.6-pV.forma)*.3);rateV=(lambdaV/90)*(rojV?.80:1)*(1+(0.6-pL.forma)*.3);}
+    if(Math.random()<0.022){
+      const mEv=b*10+1+Math.floor(Math.random()*10);
+      const esL=Math.random()<dL.wd/(dL.wd+dV.wd);
+      if(esL){rojL=true;lambdaL*=.80;rateL=lambdaL/90;evs.push({m:mEv,tipo:"roja",txt:`🟥 Min ${mEv}: ¡ROJA! ${nomL} queda con 10 (−20% ataque)`});}
+      else{rojV=true;lambdaV*=.80;rateV=lambdaV/90;evs.push({m:mEv,tipo:"roja",txt:`🟥 Min ${mEv}: ¡ROJA! ${nomV} queda con 10 (−20% ataque)`});}
+    }
+    for(let m=b*10+1;m<=b*10+10;m++){
+      if(Math.random()<rateL){gL++;evs.push({m,tipo:"gol",txt:`⚽ Min ${m}: ¡GOL de ${nomL}! (${gL}–${gV})`});}
+      if(Math.random()<rateV){gV++;evs.push({m,tipo:"gol",txt:`⚽ Min ${m}: ¡GOL de ${nomV}! (${gL}–${gV})`});}
+    }
+  }
+  evs.push({m:90,tipo:"fin",txt:`🏁 FINAL: ${nomL} ${gL} – ${gV} ${nomV}`});
+  return{gL,gV,evs:evs.sort((a,b)=>a.m-b.m)};
+}
+
+function top3(ll,lv){
+  let arr=[],tot=0;
+  for(let l=0;l<7;l++)for(let v=0;v<7;v++){const p=poisson(l,ll)*poisson(v,lv);arr.push({l,v,p});tot+=p;}
   return arr.sort((a,b)=>b.p-a.p).slice(0,3).map(r=>({...r,pct:((r.p/tot)*100).toFixed(1)}));
 }
 
-// ═══════════════════════════════════════════════════════
-//  RADAR
-// ═══════════════════════════════════════════════════════
-function drawRadar(pL, pV){
-  const cv=document.getElementById("radar"),ctx=cv.getContext("2d");
-  const cx=114,cy=114,R=80,N=5;
-  const KEYS=["forma","ataque","defensa","presion","momentum"];
-  const LBLS=["Forma","Ataque","Defensa","Presión","Momentum"];
-  ctx.clearRect(0,0,228,228);
-  for(let r=1;r<=5;r++){
-    ctx.beginPath();
-    for(let i=0;i<N;i++){const a=(i*2*Math.PI/N)-Math.PI/2,x=cx+R*r/5*Math.cos(a),y=cy+R*r/5*Math.sin(a);i?ctx.lineTo(x,y):ctx.moveTo(x,y);}
-    ctx.closePath();ctx.strokeStyle=`rgba(255,255,255,${r===5?.1:.04})`;ctx.lineWidth=r===5?1.5:1;ctx.stroke();
+// ══════════════════════════════════════════════════════════════════════
+//  SIMULADOR DE TORNEO COMPLETO
+// ══════════════════════════════════════════════════════════════════════
+function simTorneoCompleto(){
+  // Knockout: 16 → 8 → 4 → 2 → 1
+  // Formato: ida y vuelta hasta semifinal, final partido único en Montevideo
+  let equipos = [...CLASIFICADOS_R16];
+
+  function simSerie(kA, kB, esNeutral=false){
+    // Ida (cancha A) + vuelta (cancha B)
+    const dA=DB[kA], dB=DB[kB];
+    const r1=simPartido(dA,dB);   // ida en cancha A
+    const r2=simPartido(dB,dA);   // vuelta en cancha B
+    const gA=r1.gL+r2.gV, gB=r1.gV+r2.gL;
+    if(gA>gB)return kA;
+    if(gB>gA)return kB;
+    // desempate en penales (50/50 ajustado por presión)
+    const wdA=dA.wd, wdB=dB.wd;
+    return Math.random()<wdA/(wdA+wdB)?kA:kB;
   }
-  for(let i=0;i<N;i++){
-    const a=(i*2*Math.PI/N)-Math.PI/2;
-    ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+R*Math.cos(a),cy+R*Math.sin(a));
-    ctx.strokeStyle="rgba(255,255,255,.07)";ctx.lineWidth=1;ctx.stroke();
-    ctx.fillStyle="rgba(255,255,255,.28)";ctx.font="bold 9px 'Barlow Condensed',sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";
-    ctx.fillText(LBLS[i],cx+(R+19)*Math.cos(a),cy+(R+19)*Math.sin(a));
+
+  function simFinal(kA,kB){
+    // Final: partido único en Montevideo (neutro)
+    const dA=DB[kA],dB=DB[kB];
+    const{ll,lv}=getLambdas(dA,dB);
+    const llN=ll*0.92,lvN=lv*0.92; // neutro reduce ventaja local
+    let gA=sampleP(llN),gB=sampleP(lvN);
+    if(gA===gB){
+      // prórroga y penales
+      gA+=sampleP(llN*.3);gB+=sampleP(lvN*.3);
+      if(gA===gB)return Math.random()<dA.wd/(dA.wd+dB.wd)?kA:kB;
+    }
+    return gA>gB?kA:kB;
   }
-  function shape(p,sc,fc){
-    ctx.beginPath();
-    for(let i=0;i<N;i++){const val=Math.min(p[KEYS[i]],1),a=(i*2*Math.PI/N)-Math.PI/2,x=cx+R*val*Math.cos(a),y=cy+R*val*Math.sin(a);i?ctx.lineTo(x,y):ctx.moveTo(x,y);}
-    ctx.closePath();ctx.fillStyle=fc;ctx.fill();ctx.strokeStyle=sc;ctx.lineWidth=2;ctx.stroke();
-    for(let i=0;i<N;i++){const val=Math.min(p[KEYS[i]],1),a=(i*2*Math.PI/N)-Math.PI/2,x=cx+R*val*Math.cos(a),y=cy+R*val*Math.sin(a);ctx.beginPath();ctx.arc(x,y,3,0,Math.PI*2);ctx.fillStyle=sc;ctx.fill();}
-  }
-  shape(pL,"#00cfff","rgba(0,207,255,.13)");
-  shape(pV,"#ff2d55","rgba(255,45,85,.10)");
+
+  // R16: 16→8 (emparejamiento de primeros vs segundos cruzados)
+  const r16pairs=[[0,15],[1,14],[2,13],[3,12],[4,11],[5,10],[6,9],[7,8]];
+  const r16winners=r16pairs.map(([a,b])=>simSerie(equipos[a],equipos[b]));
+
+  // QF: 8→4
+  const qfPairs=[[0,7],[1,6],[2,5],[3,4]];
+  const qfWinners=qfPairs.map(([a,b])=>simSerie(r16winners[a],r16winners[b]));
+
+  // SF: 4→2
+  const sfWinners=[simSerie(qfWinners[0],qfWinners[1]),simSerie(qfWinners[2],qfWinners[3])];
+
+  // Final
+  const campeon=simFinal(sfWinners[0],sfWinners[1]);
+
+  return{campeon,sf:sfWinners,qf:qfWinners,r16:r16winners,r16pairs,qfPairs,equipos};
 }
 
-function renderBars(pL, pV){
-  document.getElementById("abars").innerHTML=ATTRS.map(a=>{
-    const tot=pL[a.k]+pV[a.k]||1,wl=(pL[a.k]/tot*100).toFixed(0),wv=(pV[a.k]/tot*100).toFixed(0);
-    return`<div class="arow"><div class="alabels"><span class="al">${wl}%</span><span class="am">${a.lbl}</span><span class="ar">${wv}%</span></div><div class="atrack"><div class="at-l" style="width:${wl}%"></div><div class="at-r" style="width:${wv}%"></div></div></div>`;
+function simularTorneo(){
+  document.getElementById("sim-spin").style.display="flex";
+  document.getElementById("sim-out").style.display="none";
+  setTimeout(()=>{
+    const N=10000;
+    const titleCount={},sfCount={};
+    CLASIFICADOS_R16.forEach(k=>{titleCount[k]=0;sfCount[k]=0;});
+
+    let lastResult=null;
+    for(let i=0;i<N;i++){
+      const res=simTorneoCompleto();
+      titleCount[res.campeon]=(titleCount[res.campeon]||0)+1;
+      res.sf.forEach(k=>{sfCount[k]=(sfCount[k]||0)+1;});
+      if(i===N-1)lastResult=res;
+    }
+
+    // Campeón más probable
+    const sorted=Object.entries(titleCount).sort((a,b)=>b[1]-a[1]);
+    const [champKey,champN]=sorted[0];
+    const champData=DB[champKey];
+    document.getElementById("champ-icon").textContent=champData.i;
+    document.getElementById("champ-name").textContent=champKey;
+    document.getElementById("champ-country").textContent=champData.p+" · Campeón más probable";
+    document.getElementById("champ-prob").textContent=(champN/N*100).toFixed(1)+"%";
+
+    // Color del campeón en el box
+    document.getElementById("champ-box").style.borderColor=champData.c;
+
+    // Odds al título — top 8
+    document.getElementById("odds-title").innerHTML=sorted.slice(0,8).map(([k,n],i)=>{
+      const d=DB[k],pct=(n/N*100).toFixed(1),maxPct=sorted[0][1]/N*100;
+      return`<div class="odds-row">
+        <span class="odds-pos">${i+1}</span>
+        <span class="odds-icon">${d.i}</span>
+        <span class="odds-name">${k}</span>
+        <div class="odds-bar-wrap"><div class="odds-bar" style="width:${(pct/maxPct*100).toFixed(0)}%"></div></div>
+        <span class="odds-pct">${pct}%</span>
+      </div>`;
+    }).join("");
+
+    // Prob semifinal — top 8
+    const sfSorted=Object.entries(sfCount).sort((a,b)=>b[1]-a[1]).slice(0,8);
+    document.getElementById("odds-sf").innerHTML=sfSorted.map(([k,n],i)=>{
+      const d=DB[k],pct=(n/N*100).toFixed(1),maxPct=sfSorted[0][1]/N*100;
+      return`<div class="odds-row">
+        <span class="odds-pos">${i+1}</span>
+        <span class="odds-icon">${d.i}</span>
+        <span class="odds-name">${k}</span>
+        <div class="odds-bar-wrap"><div class="odds-bar" style="width:${(pct/maxPct*100).toFixed(0)}%"></div></div>
+        <span class="odds-pct">${pct}%</span>
+      </div>`;
+    }).join("");
+
+    // Bracket de la última simulación
+    renderBracket(lastResult);
+
+    document.getElementById("sim-spin").style.display="none";
+    document.getElementById("sim-out").style.display="block";
+    document.getElementById("sim-out").scrollIntoView({behavior:"smooth",block:"start"});
+  },120);
+}
+
+function renderBracket(res){
+  const rondas=[
+    {title:"R16 (Proyectado)",matches:res.r16pairs.map(([a,b],i)=>({t1:res.equipos[a],t2:res.equipos[b],w:res.r16[i]}))},
+    {title:"Cuartos de Final",matches:res.qfPairs.map(([a,b],i)=>({t1:res.r16[a],t2:res.r16[b],w:res.qf[i]}))},
+    {title:"Semifinales",matches:[{t1:res.qf[0],t2:res.qf[1],w:res.sf[0]},{t1:res.qf[2],t2:res.qf[3],w:res.sf[1]}]},
+    {title:"FINAL · Montevideo",matches:[{t1:res.sf[0],t2:res.sf[1],w:res.campeon}]},
+  ];
+  document.getElementById("bracket").innerHTML=rondas.map(r=>`
+    <div class="bracket-round">
+      <div class="br-title">${r.title}</div>
+      <div class="br-slots">
+        ${r.matches.map(m=>{
+          const d1=DB[m.t1]||{i:"?"},d2=DB[m.t2]||{i:"?"};
+          return`<div class="match-slot">
+            <div class="ms-team ${m.w===m.t1?'winner':'loser'}">
+              <span class="ms-icon">${d1.i}</span>
+              <span class="ms-name">${m.t1}</span>
+            </div>
+            <div class="ms-team ${m.w===m.t2?'winner':'loser'}">
+              <span class="ms-icon">${d2.i}</span>
+              <span class="ms-name">${m.t2}</span>
+            </div>
+          </div>`;
+        }).join("")}
+      </div>
+    </div>`).join("");
+}
+
+// ══════════════════════════════════════════════════════════════════════
+//  TABLAS DE POSICIONES VISUALES
+// ══════════════════════════════════════════════════════════════════════
+function renderGroups(){
+  const grid=document.getElementById("groups-grid");
+  grid.innerHTML=Object.entries(GRUPOS).map(([g,teams])=>{
+    const sorted=[...teams].sort((a,b)=>{
+      const da=DB[a],db=DB[b];
+      if(db.pts!==da.pts)return db.pts-da.pts;
+      return(db.gf-db.ga)-(da.gf-da.ga);
+    });
+    return`<div class="group-card">
+      <div class="gc-header"><span class="gc-letter">${g}</span><span class="gc-title">Grupo ${g}</span></div>
+      <table class="gc-table">
+        <tr><th>#</th><th>Equipo</th><th>PJ</th><th>GF</th><th>GA</th><th>Pts</th></tr>
+        ${sorted.map((k,i)=>{
+          const d=DB[k];
+          const cls=i===0?"q1":i===1?"q2":i===2?"q3":"";
+          return`<tr class="${cls}">
+            <td><span class="pos-num">${i+1}</span></td>
+            <td><span class="team-icon">${d.i}</span>${k}</td>
+            <td>${d.pj||0}</td><td>${d.gf||0}</td><td>${d.ga||0}</td>
+            <td><span class="pts-badge">${d.pts||0}</span></td>
+          </tr>`;
+        }).join("")}
+      </table>
+    </div>`;
   }).join("");
 }
 
-// ═══════════════════════════════════════════════════════
-//  SIMULACIÓN EN VIVO (un solo partido con bitácora)
-// ═══════════════════════════════════════════════════════
-function simularEnVivo(){
-  const kL=document.getElementById("sel-l").value, kV=document.getElementById("sel-v").value;
-  if(kL===kV){ alert("Elegí dos equipos distintos."); return; }
-  const dL=DB[kL], dV=DB[kV];
+// ══════════════════════════════════════════════════════════════════════
+//  RADAR + BARS
+// ══════════════════════════════════════════════════════════════════════
+function drawRadar(pL,pV){
+  const cv=document.getElementById("radar"),ctx=cv.getContext("2d");
+  const cx=112,cy=112,R=78,N=5;
+  const KEYS=["forma","ataque","defensa","presion","momentum"];
+  const LBLS=["Forma","Ataque","Defensa","Presión","Momentum"];
+  ctx.clearRect(0,0,224,224);
+  for(let r=1;r<=5;r++){ctx.beginPath();for(let i=0;i<N;i++){const a=(i*2*Math.PI/N)-Math.PI/2,x=cx+R*r/5*Math.cos(a),y=cy+R*r/5*Math.sin(a);i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.closePath();ctx.strokeStyle=`rgba(255,255,255,${r===5?.1:.04})`;ctx.lineWidth=r===5?1.5:1;ctx.stroke();}
+  for(let i=0;i<N;i++){const a=(i*2*Math.PI/N)-Math.PI/2;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+R*Math.cos(a),cy+R*Math.sin(a));ctx.strokeStyle="rgba(255,255,255,.07)";ctx.lineWidth=1;ctx.stroke();ctx.fillStyle="rgba(255,255,255,.28)";ctx.font="bold 9px 'Barlow Condensed',sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(LBLS[i],cx+(R+18)*Math.cos(a),cy+(R+18)*Math.sin(a));}
+  function shape(p,sc,fc){ctx.beginPath();for(let i=0;i<N;i++){const val=Math.min(p[KEYS[i]],1),a=(i*2*Math.PI/N)-Math.PI/2,x=cx+R*val*Math.cos(a),y=cy+R*val*Math.sin(a);i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.closePath();ctx.fillStyle=fc;ctx.fill();ctx.strokeStyle=sc;ctx.lineWidth=2;ctx.stroke();for(let i=0;i<N;i++){const val=Math.min(p[KEYS[i]],1),a=(i*2*Math.PI/N)-Math.PI/2,x=cx+R*val*Math.cos(a),y=cy+R*val*Math.sin(a);ctx.beginPath();ctx.arc(x,y,3,0,Math.PI*2);ctx.fillStyle=sc;ctx.fill();}}
+  shape(pL,"#00cfff","rgba(0,207,255,.13)");shape(pV,"#ff2d55","rgba(255,45,85,.10)");
+}
+function renderBars(pL,pV){document.getElementById("abars").innerHTML=ATTRS.map(a=>{const tot=pL[a.k]+pV[a.k]||1,wl=(pL[a.k]/tot*100).toFixed(0),wv=(pV[a.k]/tot*100).toFixed(0);return`<div class="arow"><div class="alabels"><span class="al">${wl}%</span><span class="am">${a.lbl}</span><span class="ar">${wv}%</span></div><div class="atrack"><div class="at-l" style="width:${wl}%"></div><div class="at-r" style="width:${wv}%"></div></div></div>`;}).join("");}
 
-  document.getElementById("vivo-spin").style.display="flex";
-  document.getElementById("vivo-out").style.display="none";
+// ══════════════════════════════════════════════════════════════════════
+//  UPDATE MATCH
+// ══════════════════════════════════════════════════════════════════════
+let mcT=null;
+function updateMatch(){
+  const kL=document.getElementById("sel-l").value,kV=document.getElementById("sel-v").value;
+  if(kL===kV)return;
+  const dL=DB[kL],dV=DB[kV];
+  document.getElementById("crest-l").style.background=dL.c;document.getElementById("crest-l").textContent=dL.i;
+  document.getElementById("name-l").textContent=kL;document.getElementById("ctag-l").textContent=dL.p;
+  document.getElementById("crest-v").style.background=dV.c;document.getElementById("crest-v").textContent=dV.i;
+  document.getElementById("name-v").textContent=kV;document.getElementById("ctag-v").textContent=dV.p;
+  document.getElementById("rl-l").textContent=kL;document.getElementById("rl-v").textContent=kV;
+  const{ll,lv,pL,pV}=getLambdas(dL,dV);
+  let maxP=-1,best=[0,0];for(let l=0;l<7;l++)for(let v=0;v<7;v++){const p=poisson(l,ll)*poisson(v,lv);if(p>maxP){maxP=p;best=[l,v];}}
+  const el=document.getElementById("score-ia");el.classList.remove("flash");void el.offsetWidth;el.textContent=`${best[0]}–${best[1]}`;el.classList.add("flash");
+  const t=top3(ll,lv);document.getElementById("top3").innerHTML=t.map(r=>`<div class="t3c"><div class="t3s">${r.l}–${r.v}</div><div class="t3p">${r.pct}%</div></div>`).join("");
+  drawRadar(pL,pV);renderBars(pL,pV);
+  clearTimeout(mcT);mcT=setTimeout(()=>{
+    let w=0,d=0,lo=0;const N=8000;
+    for(let i=0;i<N;i++){const{gL,gV}=simPartido(dL,dV);if(gL>gV)w++;else if(gL===gV)d++;else lo++;}
+    const W=(w/N*100).toFixed(1),D=(d/N*100).toFixed(1),L=(lo/N*100).toFixed(1);
+    document.getElementById("pb-w").style.width=W+"%";document.getElementById("pb-d").style.width=D+"%";document.getElementById("pb-l").style.width=L+"%";
+    document.getElementById("pct-w").textContent=W+"%";document.getElementById("pct-d").textContent=D+"%";document.getElementById("pct-l").textContent=L+"%";
+  },100);
+}
 
+function selSc(sc){
+  currentSc=sc;
+  document.querySelectorAll(".sc-btn").forEach(b=>b.classList.toggle("active",b.dataset.sc===sc));
+  document.getElementById("suplente-pick").classList.toggle("show",sc==="suplente");
+  updateMatch();
+}
+
+function simLive(){
+  const kL=document.getElementById("sel-l").value,kV=document.getElementById("sel-v").value;
+  if(kL===kV){alert("Elegí dos equipos distintos.");return;}
+  document.getElementById("live-spin").style.display="flex";document.getElementById("live-out").style.display="none";
   setTimeout(()=>{
-    const {golesL, golesV, cantRojas, eventos} = simularPartidoCompleto(dL, dV, true);
-    const sL=(dL.displayName||kL).split(" (")[0], sV=(dV.displayName||kV).split(" (")[0];
-
-    document.getElementById("vivo-score").textContent=`${golesL}–${golesV}`;
-
-    let winner="";
-    if(golesL>golesV)      winner=`✅ Ganó ${sL}`;
-    else if(golesV>golesL) winner=`✅ Ganó ${sV}`;
-    else                   winner="🤝 Empate";
-    document.getElementById("vivo-winner").textContent=winner;
-
-    // Renderizar bitácora
-    const colorMap={roja:"ev-roja",gol:"ev-gol",fatiga:"ev-fatiga",fin:"ev-fin"};
-    const log = document.getElementById("eventos-log");
-    if(!eventos.length){
-      log.innerHTML=`<span class="ev-none">Partido sin incidencias destacadas. ${golesL}–${golesV}.</span>`;
-    } else {
-      log.innerHTML=eventos
-        .sort((a,b)=>a.min-b.min)
-        .map(ev=>`<div class="${colorMap[ev.tipo]||''}">${ev.txt}</div>`)
-        .join("");
-    }
-
-    document.getElementById("vivo-spin").style.display="none";
-    document.getElementById("vivo-out").style.display="block";
-    // Auto-scroll al log
-    log.scrollTop=0;
-  }, 600);
+    const{gL,gV,evs}=simPartidoLog(DB[kL],DB[kV],kL,kV);
+    document.getElementById("live-score").textContent=`${gL}–${gV}`;
+    document.getElementById("live-win").textContent=gL>gV?`✅ ${kL}`:gV>gL?`✅ ${kV}`:"🤝 Empate";
+    const cmap={roja:"ev-roja",gol:"ev-gol",fatiga:"ev-fatiga",fin:"ev-fin"};
+    document.getElementById("ev-log").innerHTML=evs.map(e=>`<div class="${cmap[e.tipo]||''}">${e.txt}</div>`).join("")||"Partido sin incidencias.";
+    document.getElementById("live-spin").style.display="none";document.getElementById("live-out").style.display="block";
+  },500);
 }
 
-// ═══════════════════════════════════════════════════════
-//  UPDATE PRINCIPAL
-// ═══════════════════════════════════════════════════════
-let mcTimer=null;
-function update(){
-  const kL=document.getElementById("sel-l").value, kV=document.getElementById("sel-v").value;
-  if(kL===kV) return;
-  const dL=DB[kL], dV=DB[kV];
-  const sL=(dL.displayName||kL).split(" (")[0], sV=(dV.displayName||kV).split(" (")[0];
-
-  document.getElementById("crest-l").style.background=dL.c;  document.getElementById("crest-l").textContent=dL.i;
-  document.getElementById("name-l").textContent=sL;           document.getElementById("ctag-l").textContent=dL.p;
-  document.getElementById("gtag-l").textContent="GRUPO "+dL.grp;
-  document.getElementById("crest-v").style.background=dV.c;  document.getElementById("crest-v").textContent=dV.i;
-  document.getElementById("name-v").textContent=sV;           document.getElementById("ctag-v").textContent=dV.p;
-  document.getElementById("gtag-v").textContent="GRUPO "+dV.grp;
-  document.getElementById("rl-l").textContent=sL;             document.getElementById("rl-v").textContent=sV;
-  document.getElementById("alt-badge").classList.toggle("on", dL.alt);
-
-  const {ll, lv, pL, pV} = getLambdas(dL, dV);
-
-  // Score MAP (resultado analítico más probable)
-  let maxP=-1, best=[0,0];
-  for(let l=0;l<8;l++) for(let v=0;v<8;v++){const p=poisson(l,ll)*poisson(v,lv);if(p>maxP){maxP=p;best=[l,v];}}
-  const el=document.getElementById("score-ia");
-  el.classList.remove("flash"); void el.offsetWidth;
-  el.textContent=`${best[0]}–${best[1]}`; el.classList.add("flash");
-
-  // Top 3
-  const t=top3(ll,lv);
-  document.getElementById("top3").innerHTML=t.map(r=>`<div class="t3c"><div class="t3s">${r.l}–${r.v}</div><div class="t3p">${r.pct}%</div></div>`).join("");
-
-  drawRadar(pL,pV); renderBars(pL,pV);
-
-  // Monte Carlo debounced
-  document.getElementById("mc-spin").style.display="flex";
-  document.getElementById("mc-out").style.display="none";
-  clearTimeout(mcTimer);
-  mcTimer=setTimeout(()=>{
-    const mc=monteCarlo(dL, dV);
-    const W=(mc.w*100).toFixed(1), D=(mc.d*100).toFixed(1), L=(mc.l*100).toFixed(1);
-    document.getElementById("pb-w").style.width=W+"%";
-    document.getElementById("pb-d").style.width=D+"%";
-    document.getElementById("pb-l").style.width=L+"%";
-    document.getElementById("pct-w").textContent=W+"%";
-    document.getElementById("pct-d").textContent=D+"%";
-    document.getElementById("pct-l").textContent=L+"%";
-    document.getElementById("mc-w").textContent=W+"%";
-    document.getElementById("mc-d").textContent=D+"%";
-    document.getElementById("mc-l").textContent=L+"%";
-    document.getElementById("mc-al").textContent=mc.al.toFixed(2);
-    document.getElementById("mc-av").textContent=mc.av.toFixed(2);
-    document.getElementById("mc-rng").textContent=`${Math.floor(mc.al-.5)}-${Math.ceil(mc.al+.5)} / ${Math.floor(mc.av-.5)}-${Math.ceil(mc.av+.5)}`;
-    document.getElementById("mc-rojas").textContent=mc.rojas.toFixed(2);
-    document.getElementById("mc-remontadas").textContent=(mc.remontadas*100).toFixed(1)+"%";
-    document.getElementById("mc-spin").style.display="none";
-    document.getElementById("mc-out").style.display="block";
-  }, 100);
-}
-
-// ═══════════════════════════════════════════════════════
-//  GROUP NAV
-// ═══════════════════════════════════════════════════════
-function buildGroupNav(){
+// ══════════════════════════════════════════════════════════════════════
+//  GROUP NAV + SELECTS + VOTOS
+// ══════════════════════════════════════════════════════════════════════
+function buildNav(){
   const nav=document.getElementById("gnav");
   Object.keys(GRUPOS).forEach(g=>{
-    const b=document.createElement("button");
-    b.className="gnav-btn"; b.textContent="GRUPO "+g;
-    b.onclick=()=>{
-      document.querySelectorAll(".gnav-btn").forEach(x=>x.classList.remove("active"));
-      b.classList.add("active");
-      const teams=GRUPOS[g];
-      if(teams.length>=2){
-        document.getElementById("sel-l").value=teams[0];
-        document.getElementById("sel-v").value=teams[1];
-        update();
-      }
-    };
+    const b=document.createElement("button");b.className="gnav-btn";b.textContent="Grupo "+g;
+    b.onclick=()=>{document.querySelectorAll(".gnav-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");const t=GRUPOS[g];document.getElementById("sel-l").value=t[0];document.getElementById("sel-v").value=t[1];updateMatch();};
     nav.appendChild(b);
   });
 }
-
-// ═══════════════════════════════════════════════════════
-//  VOTOS
-// ═══════════════════════════════════════════════════════
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
 function renderVotes(){
-  const tb=document.getElementById("tbody"), em=document.getElementById("emsg");
+  const tb=document.getElementById("tbody"),em=document.getElementById("emsg");
   document.getElementById("tcnt").textContent=`${votes.length} PRONÓSTICO${votes.length!==1?"S":""}`;
   if(!votes.length){tb.innerHTML="";em.style.display="block";return;}
   em.style.display="none";
   tb.innerHTML=votes.slice(0,30).map(v=>`<tr><td><span class="nick">${esc(v.u)}</span></td><td><span class="match">${esc(v.p)}</span></td><td><span class="stag">${esc(v.r)}</span></td></tr>`).join("");
 }
 function vote(){
-  const nick=document.getElementById("nick").value.trim();
-  if(!nick){alert("Ingresá tu apodo.");return;}
-  const kL=document.getElementById("sel-l").value, kV=document.getElementById("sel-v").value;
-  if(kL===kV){alert("Los equipos no pueden ser iguales.");return;}
-  const gl=parseInt(document.getElementById("gl").value), gv=parseInt(document.getElementById("gv").value);
+  const nick=document.getElementById("nick").value.trim();if(!nick){alert("Ingresá tu apodo.");return;}
+  const kL=document.getElementById("sel-l").value,kV=document.getElementById("sel-v").value;if(kL===kV){alert("Equipos distintos.");return;}
+  const gl=parseInt(document.getElementById("gl").value),gv=parseInt(document.getElementById("gv").value);
   if(isNaN(gl)||isNaN(gv)||gl<0||gl>9||gv<0||gv>9){alert("Resultado inválido.");return;}
-  const dL=DB[kL], dV=DB[kV];
-  const sL=(dL.displayName||kL).split(" (")[0], sV=(dV.displayName||kV).split(" (")[0];
-  votes.unshift({u:nick,p:`${sL} vs ${sV}`,r:`${gl}–${gv}`,ts:Date.now()});
-  localStorage.setItem("apv2026",JSON.stringify(votes));
-  renderVotes(); document.getElementById("nick").value="";
+  votes.unshift({u:nick,p:`${kL} vs ${kV}`,r:`${gl}–${gv}`,ts:Date.now()});
+  localStorage.setItem("apv2026v5",JSON.stringify(votes));renderVotes();document.getElementById("nick").value="";
 }
 
-// ═══════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════════════
 //  INIT
-// ═══════════════════════════════════════════════════════
-const selL=document.getElementById("sel-l"), selV=document.getElementById("sel-v");
+// ══════════════════════════════════════════════════════════════════════
+const selL=document.getElementById("sel-l"),selV=document.getElementById("sel-v");
 Object.keys(GRUPOS).forEach(g=>{
-  const og=document.createElement("optgroup"); og.label="── GRUPO "+g+" ──";
-  GRUPOS[g].forEach(k=>{
-    const d=DB[k];
-    const label=(d.displayName||k).replace("-D","")+(d.alt?" ⛰️":"");
-    og.appendChild(new Option(label,k));
-  });
-  selL.appendChild(og.cloneNode(true));
-  selV.appendChild(og);
+  const og=document.createElement("optgroup");og.label="── Grupo "+g+" ──";
+  GRUPOS[g].forEach(k=>{const d=DB[k];og.appendChild(new Option((d.alt?"⛰️ ":"")+k,k));});
+  selL.appendChild(og.cloneNode(true));selV.appendChild(og);
 });
-
-// Recalcular si cambia el promedio de liga
-document.getElementById("avg-liga").addEventListener("change", update);
-document.getElementById("mc-n").addEventListener("change", update);
-
-buildGroupNav();
-selL.value="Flamengo (BRA)"; selV.value="Palmeiras (BRA)";
-update(); renderVotes();
+renderGroups();
+buildNav();
+selL.value="Flamengo";selV.value="Palmeiras";
+updateMatch();renderVotes();
 </script>
 </body>
 </html>
